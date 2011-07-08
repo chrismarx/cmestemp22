@@ -26,7 +26,7 @@ import org.eurekastreams.server.persistence.mappers.BaseArgDomainMapper;
  * Retrieves a user's notification filter preferences.
  *
  */
-public class GetNotificationFilterPreferencesByPersonId extends
+public class GetNotificationFilterPreferencesByPersonId extends 
         BaseArgDomainMapper<Long, Collection<NotificationFilterPreferenceDTO>>
 {
     /**

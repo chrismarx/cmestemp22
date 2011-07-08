@@ -21,10 +21,13 @@ import javax.sql.DataSource;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.dbunit.database.DatabaseConfig;
 import org.dbunit.database.DatabaseConnection;
 import org.dbunit.database.IDatabaseConnection;
 import org.dbunit.dataset.IDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSet;
+import org.dbunit.ext.oracle.Oracle10DataTypeFactory;
+import org.dbunit.ext.oracle.OracleConnection;
 import org.dbunit.operation.DatabaseOperation;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -38,6 +41,8 @@ import org.springframework.jdbc.datasource.DataSourceUtils;
  * Note: This is very specific to our configuration - it's loading all Spring files found in
  * "classpath:applicationContext*-test.xml", and looking for the bean named "dataSource". This is no more hard-coded
  * than annotations in our tests, and does make our setUp methods much easier to manage.
+ * 
+ * TODO had to change dbunit settings, not sure if this can be made generic
  */
 public final class DBUnitFixtureSetup
 {
@@ -46,8 +51,11 @@ public final class DBUnitFixtureSetup
 
     /**
      * Locations of the application context files to load for finding the data source.
+     * Note:Errors here or with the datasource probably indicate you're missing the test-jar build of the parent (eurekastreams-server)
      */
-    private static final String[] APPLICATION_CONTEXT_LOCATIONS = { "classpath:applicationContext*-test.xml" };
+    private static final String[] APPLICATION_CONTEXT_LOCATIONS = {"classpath:applicationContext-mappers-test.xml",
+    																"classpath:applicationContext-model-test.xml",
+    																"classpath:applicationContext-search-test.xml"};
 
     /**
      * Name of the data source bean in the Spring config.
@@ -113,9 +121,16 @@ public final class DBUnitFixtureSetup
 
         // Get the connection to the database
         Connection connection = DataSourceUtils.getConnection(dataSource);
-        IDatabaseConnection dbUnitCon = new DatabaseConnection(connection);
-
+        IDatabaseConnection dbUnitCon = new OracleConnection(connection,"EUREKA_STREAMS_TEST");
+        DatabaseConfig dbUnitConConfig = dbUnitCon.getConfig();
+        dbUnitConConfig.setProperty(DatabaseConfig.PROPERTY_DATATYPE_FACTORY, new Oracle10DataTypeFactory());
+        //dbUnitConConfig.setFeature(DatabaseConfig.FEATURE_QUALIFIED_TABLE_NAMES, true);
+        dbUnitConConfig.setFeature(DatabaseConfig.FEATURE_CASE_SENSITIVE_TABLE_NAMES, false);
+        dbUnitConConfig.setProperty(DatabaseConfig.PROPERTY_ESCAPE_PATTERN, "\"?\"");
+        
         // Get the data from the file at the input resource path
+        //String path = DBUnitFixtureSetup.class.getProtectionDomain().getCodeSource().getLocation().toString().substring(6);
+        //IDataSet dataSet = new FlatXmlDataSet(new java.io.File(path + newDatasetPath),false,true,false);
         IDataSet dataSet = new FlatXmlDataSet(DBUnitFixtureSetup.class.getResourceAsStream(newDatasetPath));
 
         // insert the data set into the database with a clean insert

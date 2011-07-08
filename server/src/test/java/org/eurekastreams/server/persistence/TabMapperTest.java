@@ -480,7 +480,7 @@ public class TabMapperTest extends DomainEntityMapperTest
         jpaTabMapper.flush();
 
         Boolean deletedFlag = (Boolean) getEntityManager().createQuery(
-                "select deleted from Gadget where id = :gadgetId and "
+                "select deleted from Gadget g where g.id = :gadgetId and "
                         + "tabTemplateId = :tabTemplateId and deleted = true").setParameter("tabTemplateId",
                 fordsTab.getTemplate().getId()).setParameter("gadgetId", fordsFirstTabFirstGadgetId).getSingleResult();
 
@@ -518,7 +518,7 @@ public class TabMapperTest extends DomainEntityMapperTest
 
         // make sure that the deleted gadget is still available
         int resultCount = getEntityManager().createQuery(
-                "select gadgetDefinition from Gadget where id = :gadgetId and deleted = true").setParameter("gadgetId",
+                "select gadgetDefinition from Gadget g where g.id = :gadgetId and deleted = true").setParameter("gadgetId",
                 fordsDeletedGadgetId).getResultList().size();
 
         assertEquals(
@@ -583,7 +583,7 @@ public class TabMapperTest extends DomainEntityMapperTest
 
         // make sure that the deleted gadget is still available
         int resultCount = getEntityManager().createQuery(
-                "select gadgetDefinition from Gadget where id = :gadgetId and deleted = true").setParameter("gadgetId",
+                "select gadgetDefinition from Gadget g where g.id = :gadgetId and g.deleted = true").setParameter("gadgetId",
                 fordsDeletedGadgetId).getResultList().size();
 
         assertEquals("After deleting a Gadget, the Gadget that was deleted outside the undo "
@@ -613,7 +613,7 @@ public class TabMapperTest extends DomainEntityMapperTest
 
         // check the existence of an already-deleted gadget
         GadgetDefinition gadgetDefinition = (GadgetDefinition) getEntityManager().createQuery(
-                "select gadgetDefinition from Gadget where id = :gadgetId and deleted = true").setParameter("gadgetId",
+                "select gadgetDefinition from Gadget g where g.id = :gadgetId and g.deleted = true").setParameter("gadgetId",
                 fordsDeletedGadgetId).getSingleResult();
 
         assertEquals("Could not find the already-deleted gadget", "http://www.example.com/gadget2.xml",
@@ -625,7 +625,7 @@ public class TabMapperTest extends DomainEntityMapperTest
         // now make sure that the already-deleted gadget is gone - it should
         // have expired away
         int resultCount = getEntityManager().createQuery(
-                "select gadgetDefinition from Gadget where id = :gadgetId and deleted = true").setParameter("gadgetId",
+                "select gadgetDefinition from Gadget g where g.id = :gadgetId and deleted = true").setParameter("gadgetId",
                 fordsDeletedGadgetId).getResultList().size();
 
         assertEquals("After deleting a gadget, the gadget that was deleted a "

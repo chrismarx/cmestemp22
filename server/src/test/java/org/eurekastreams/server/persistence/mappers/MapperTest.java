@@ -73,6 +73,6 @@ public abstract class MapperTest
     public static void setUp() throws Exception
     {
         // Load up the DBUnit data set
-        DBUnitFixtureSetup.loadDataSet("/dataset.xml");
+        DBUnitFixtureSetup.loadDataSet("/dataset-oracle.xml");
     }
 }

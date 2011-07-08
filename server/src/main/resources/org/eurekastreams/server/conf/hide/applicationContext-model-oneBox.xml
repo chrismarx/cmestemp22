@@ -15,11 +15,10 @@
 
 				<entry key="hibernate.cache.provider_class" value="net.sf.ehcache.hibernate.SingletonEhCacheProvider" />
 				<entry key="net.sf.ehcache.configurationResourceName" value="/WEB-INF/ehcache.xml" />
-				<entry key="hibernate.show_sql" value="true" />
+				<entry key="hibernate.show_sql" value="false" />
 				<entry key="hibernate.use_sql_comments" value="false" />
 				<entry key="hibernate.format_sql" value="false" />
-				<entry key="hibernate.dialect" value="org.hibernate.dialect.custom.CustomOracle10gDialect" />
-        <entry key="hibernate.query.substitutions" value="true 1, false 0" />
+				<entry key="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
 
 				<!--
 					Lucene Indexing Options - duplicate calls for different versions of
@@ -40,9 +39,8 @@
 				<!--
 					Location of the lucene filesystem index - this will need to change
 					to something most likely in /var
-					Note: clo.workspace.path is a system variable set on the server
 				-->
-				<entry key="hibernate.search.default.indexBase" value="${clo.workspace.path}${eureka.hibernatesearch.indexbase.dir}/lucene-index-eureka-ONEBOX" />
+				<entry key="hibernate.search.default.indexBase" value="${eureka.hibernatesearch.indexbase.dir}/lucene-index-eureka-ONEBOX" />
 
 				<!--
 					How many updates/deletes need to occur before the search index is

@@ -34,6 +34,8 @@ import org.eurekastreams.server.persistence.exceptions.GadgetUndeletionException
 
 /**
  * This class provides the mapper functionality for Tab entities.
+ * TODO quoted value of 'false' wasn't substituted correctly, 
+ *  see  https://forum.hibernate.org/viewtopic.php?f=1&t=1009876
  */
 public class TabMapper
 {
@@ -122,7 +124,7 @@ public class TabMapper
     public Tab findById(final Long tabId)
     {
         Query q = entityManager.createQuery(
-                "from Tab t left join fetch t.template where t.id = :tabId and t.deleted = 'false'").setParameter(
+                "from Tab t left join fetch t.template where t.id = :tabId and t.deleted = false").setParameter(
                 "tabId", tabId);
         Tab tab = (Tab) q.getSingleResult();
 

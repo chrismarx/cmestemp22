@@ -7,11 +7,11 @@
       http://www.springframework.org/schema/tx/spring-tx.xsd">
 
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
-		<property name="driverClassName" value="org.hsqldb.jdbcDriver" />
-		<property name="url" value="jdbc:hsqldb:file:target/hsqldb/data" />
-		<property name="username" value="sa" />
-		<property name="password" value="" />
-	</bean>
+        <property name="driverClassName" value="oracle.jdbc.pool.OracleConnectionPoolDataSource" />
+        <property name="url" value="jdbc:oracle:thin:@guillemot.ornith.cornell.edu:1521:sw2" />
+        <property name="username" value="eureka_streams_test" />
+        <property name="password" value="YourekaTent!T" />
+    </bean>
 
 	<!-- Cache of organization hierarchies by id -->
 	<bean id="organizationHierarchyCache"
@@ -32,7 +32,7 @@
 			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
 				<property name="showSql" value="true" />
 				<property name="generateDdl" value="true" />
-				<property name="databasePlatform" value="org.hibernate.dialect.HSQLDialect" />
+				<property name="databasePlatform" value="org.hibernate.dialect.custom.CustomOracle10gDialect" />
 			</bean>
 		</property>
 		<property name="jpaPropertyMap">
@@ -43,7 +43,9 @@
 				<entry key="hibernate.show_sql" value="true" />
 				<entry key="hibernate.use_sql_comments" value="false" />
 				<entry key="hibernate.format_sql" value="false" />
-				<entry key="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect" />
+				<entry key="hibernate.dialect" value="org.hibernate.dialect.custom.CustomOracle10gDialect" />
+				<entry key="hibernate.query.substitutions" value="true 1, false 0, 'true' 1, 'false' 0" />
+                
 
 				<entry key="hibernate.search.default.optimizeroperation_limit.max"
 					value="10000" />

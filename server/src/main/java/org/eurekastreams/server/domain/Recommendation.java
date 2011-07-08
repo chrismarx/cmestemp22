@@ -26,6 +26,7 @@ import org.eurekastreams.commons.model.DomainEntity;
 
 /**
  * Represents a recommendation made by an author about a subject.
+ * TODO date field needed to be escaped
  */
 @Entity
 public class Recommendation extends DomainEntity implements Serializable
@@ -62,6 +63,7 @@ public class Recommendation extends DomainEntity implements Serializable
      * The creation date/time of the recommendation.
      */
     @Basic(optional = false)
+    @Column(name="`date`")
     private Date date;
 
     /**

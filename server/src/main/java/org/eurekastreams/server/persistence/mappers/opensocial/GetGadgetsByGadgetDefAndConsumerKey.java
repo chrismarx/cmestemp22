@@ -56,7 +56,7 @@ public class GetGadgetsByGadgetDefAndConsumerKey extends ReadMapper<GetGadgetsBy
         Query gadgetCountQuery = getEntityManager().createQuery(
                 "select count(ga.id) from Gadget ga, Tab tab, Person p "
                         + "where ga.template.id = tab.template.id and p.startTabGroup.id = tab.tabGroup.id "
-                        + "and p.id =:personId and ga.deleted = 'f' and ga.gadgetDefinition.id =:gadgetDefId")
+                        + "and p.id =:personId and ga.deleted = 0 and ga.gadgetDefinition.id =:gadgetDefId")
                 .setParameter("personId", personId).setParameter("gadgetDefId", gadgetDefId);
         return (Long) gadgetCountQuery.getSingleResult();
     }

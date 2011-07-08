@@ -24,6 +24,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -33,9 +34,10 @@ import org.hibernate.validator.Length;
 
 /**
  * Entity representing a comment on an Activity.
- * 
+ * TODO comment is an oracle reserved word, keeping it as lowercase "comment" was a pain
  */
 @Entity
+@Table(name = "COMMENT1")
 public class Comment extends DomainEntity implements Serializable
 {
 

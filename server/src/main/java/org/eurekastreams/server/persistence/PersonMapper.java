@@ -32,6 +32,8 @@ import org.eurekastreams.server.persistence.strategies.DescendantOrganizationStr
 
 /**
  * This class provides the mapper functionality for Person entities.
+ * TODO {@link #addFollower(long, long)}, {@link #removeFollower(long, long)} fails on oracle because 
+ * the 1 is subtracted after the subquery (in the hql) rather than before
  */
 @Deprecated
 public class PersonMapper extends DomainEntityMapper<Person> implements FollowMapper
@@ -154,11 +156,11 @@ public class PersonMapper extends DomainEntityMapper<Person> implements FollowMa
 
         // now update the counts for persons subtracting 1 for themselves.
         getEntityManager().createQuery(
-                "update versioned Person set followingCount = following.size - 1 where id=:followerId").setParameter(
+                "update versioned Person set followingCount = -1 + following.size where id=:followerId").setParameter(
                 "followerId", followerId).executeUpdate();
 
         getEntityManager().createQuery(
-                "update versioned Person set followersCount = followers.size - 1 where id=:followingId").setParameter(
+                "update versioned Person set followersCount = -1 + followers.size  where id=:followingId").setParameter(
                 "followingId", followingId).executeUpdate();
 
         getEntityManager().flush();
@@ -220,11 +222,11 @@ public class PersonMapper extends DomainEntityMapper<Person> implements FollowMa
         }
         // now update the counts for persons subtracting 1 for themselves.
         getEntityManager().createQuery(
-                "update versioned Person set followingCount = following.size - 1 " + "where id=:followerId")
+                "update versioned Person set followingCount =  -1 + following.size " + "where id=:followerId")
                 .setParameter("followerId", followerId).executeUpdate();
 
         getEntityManager().createQuery(
-                "update versioned Person set followersCount = followers.size - 1 where id=:followingId").setParameter(
+                "update versioned Person set followersCount = - 1 + followers.size where id=:followingId").setParameter(
                 "followingId", followingId).executeUpdate();
 
         getEntityManager().flush();

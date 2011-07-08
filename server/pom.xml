@@ -463,6 +463,40 @@
         </dependency>
         <!-- end Spring AOP dependencies -->
 		 
+		<!-- for testing with real database -->
+		<!-- 
+	   <dependency>
+           <groupId>it.cnr.isti.domoware</groupId>
+           <artifactId>org.postgresql.jdbc4</artifactId>
+           <version>8.3-603</version>
+        </dependency>
+        -->
+        
+        <dependency>
+        	<groupId>com.oracle</groupId>
+        	<artifactId>ojdbc6</artifactId>
+        	<version>11.1.0.7.0</version>
+        </dependency> 
+         
+        <!-- cas  -->
+        <dependency>
+        	<groupId>org.jasig.cas</groupId>
+        	<artifactId>cas-client-core</artifactId>
+        	<version>3.1.10</version>
+        </dependency>
+        <dependency>
+        	<groupId>org.springframework.security</groupId>
+        	<artifactId>spring-security-cas-client</artifactId>
+        	<version>2.0.5.RELEASE</version>
+        	<exclusions>
+        		<exclusion>
+        			<artifactId>spring-dao</artifactId>
+        			<groupId>org.springframework</groupId>
+        		</exclusion>
+        	</exclusions>
+        </dependency>
+       
+        
 	</dependencies>
 	<pluginRepositories>
 		<pluginRepository>

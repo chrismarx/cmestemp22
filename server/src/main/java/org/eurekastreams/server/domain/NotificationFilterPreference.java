@@ -20,21 +20,77 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+import javax.persistence.Version;
 
 import org.eurekastreams.commons.model.DomainEntity;
 
 /**
  * Represents a kind of notification that a user wishes not to see via a given transport.
+ * NOTE: this name of this table was shortened, it was easier to shorten the table name to 
+ * something that would support the programatic resolution of sequence name
  */
 @Entity
-public class NotificationFilterPreference extends DomainEntity
-{
+@Table(name="NOTIFFILTERPREFERENCE")
+public class NotificationFilterPreference
+{ 
     /** Version. */
     private static final long serialVersionUID = 7192155314637780614L;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO, generator="table_name_seq_gen")
+    @SequenceGenerator(name="table_name_seq_gen")
+    private long id;
+    
     /**
+	 * @return the id
+	 */
+	public long getId() {
+		return id;
+	}
+
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(long id) {
+		this.id = id;
+	}
+	
+
+    /**
+     * Version column - used for ORM for optimistic locking.
+     */
+    @Version
+    private long version;
+
+    /**
+     * returns the version.
+     *
+     * @return version
+     */
+    public long getVersion()
+    {
+        return version;
+    }
+
+    /**
+     * sets the version.
+     *
+     * @param newVersion
+     *            version of the entity.
+     */
+    protected void setVersion(final long newVersion)
+    {
+        this.version = newVersion;
+    }
+
+	/**
      * Category of nofications to suppress.
      */
     public enum Category

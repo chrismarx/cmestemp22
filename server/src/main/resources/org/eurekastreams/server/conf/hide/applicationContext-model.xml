@@ -1,24 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:tx="http://www.springframework.org/schema/tx"
-	xmlns:jee="http://www.springframework.org/schema/jee"
-	xsi:schemaLocation="http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.5.xsd
-		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
-		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans.xsd
+      http://www.springframework.org/schema/tx
+      http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-    <!-- Required bean for the Model imported resource  
-    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
-        <property name="driverClassName" value="oracle.jdbc.pool.OracleConnectionPoolDataSource" />
-        <property name="url" value="${eureka.db.connstr}:${eureka.db.dbname}" />
+    <!-- Required bean for the Model imported resource -->  
+   <!--  <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="driverClassName" value="org.postgresql.Driver" />
+        <property name="url" value="${eureka.db.connstr}/${eureka.db.dbname}" />
         <property name="username" value="${eureka.db.username}" />
         <property name="password" value="${eureka.db.password}" />
-    </bean>
-     -->
-     
-    <!-- JNDI DataSource for JEE environments. datasource ref is in web.xml, tomcat looks for server/conf/server.xml, 
-    	jetty look for WEB-INF/jetty-env.xml -->
-	<jee:jndi-lookup id="dataSource" jndi-name="java:comp/env/jdbc/myDataSource"/>
+    </bean> -->
 
 	<bean id="queryOptimizer" class="org.eurekastreams.commons.hibernate.QueryOptimizer" />
 	
@@ -40,9 +34,9 @@
 		<property name="dataSource" ref="dataSource" />
 		<property name="jpaVendorAdapter">
 			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
-				<property name="showSql" value="true" /><!-- ${eureka.model.showsql} -->
+				<property name="showSql" value="${eureka.model.showsql}" />
 				<property name="generateDdl" value="false" />
-				<property name="databasePlatform" value="org.hibernate.dialect.custom.CustomOracle10gDialect" />
+				<property name="databasePlatform" value="org.hibernate.dialect.PostgreSQLDialect" />
 			</bean>
 		</property>
 		<property name="jpaPropertyMap" ref="hibernatePropertyMap"/>

@@ -6,12 +6,13 @@
 	<HashTag id="4" content="#java" version="1" />
 	<HashTag id="5" content="#soda" version="1" />
 
-	<Stream id="1" version="0" readonly="true" name="Everyone" request="{ query : {} }" />
-	<Stream id="2" version="0" readonly="false" name="my search" request="{ query : { keywords : 'search'} }" />
-	<Stream id="3" version="0" readonly="true" name="Following" request="{query:{followedBy:'%%CURRENT_USER_ACCOUNT_ID%%'}}" />
-	<Stream id="4" version="0" readonly="true" name="EUREKA:PARENT_ORG_TAG" request="{query:{parentOrg:'%%CURRENT_USER_ACCOUNT_ID%%'}}" />
-	<Stream id="5" version="0" readonly="true" name="My saved items" request="{query:{savedBy:'%%CURRENT_USER_ACCOUNT_ID%%'}}" />
-	<Stream id="6" version="0" readonly="false" name="Potato" request="{query:{}}" />
+<!-- had to be updated for oracle true/false 1/0 -->
+	<Stream id="1" version="0" readonly="1" name="Everyone" request="{ query : {} }" />
+	<Stream id="2" version="0" readonly="0" name="my search" request="{ query : { keywords : 'search'} }" />
+	<Stream id="3" version="0" readonly="1" name="Following" request="{query:{followedBy:'%%CURRENT_USER_ACCOUNT_ID%%'}}" />
+	<Stream id="4" version="0" readonly="1" name="EUREKA:PARENT_ORG_TAG" request="{query:{parentOrg:'%%CURRENT_USER_ACCOUNT_ID%%'}}" />
+	<Stream id="5" version="0" readonly="1" name="My saved items" request="{query:{savedBy:'%%CURRENT_USER_ACCOUNT_ID%%'}}" />
+	<Stream id="6" version="0" readonly="0" name="Potato" request="{query:{}}" />
 
 	<!-- Gadget Categories -->
 	<GalleryItemCategory id="4565" name="News" version="3467"
@@ -32,64 +33,64 @@
         version="3471" galleryItemType="PLUGIN" />
 
     <!-- PLUGIN  -->
-    <PluginDefinition id="1" version="1" updateFrequency="9" showInGallery="true" url="http://www.google1.com"
+    <PluginDefinition id="1" version="1" updateFrequency="9" showInGallery="1" url="http://www.google1.com"
         uuid="568d4fp2-7dec-11d0-a765-00a0c91e6bf8" created="2009-01-01 12:00:00.000" numberOfUsers="0" pluginCategoryId="1234"/>
-    <PluginDefinition id="2" version="1" updateFrequency="20" showInGallery="true" url="http://www.google2.com" uuid="568d4fki-7dec-11d0-a765-00a0c91e6bf8"
+    <PluginDefinition id="2" version="1" updateFrequency="20" showInGallery="1" url="http://www.google2.com" uuid="568d4fki-7dec-11d0-a765-00a0c91e6bf8"
         created="2009-01-01 12:00:00.000"
         numberOfUsers="0" pluginCategoryId="1234"/>
-    <PluginDefinition id="3" version="1" updateFrequency="30" showInGallery="true" url="http://www.google3.com" uuid="568d4hye-7dec-11d0-a765-00a0c91e6bf8"
+    <PluginDefinition id="3" version="1" updateFrequency="30" showInGallery="1" url="http://www.google3.com" uuid="568d4hye-7dec-11d0-a765-00a0c91e6bf8"
         created="2009-01-01 12:00:00.000"
         numberOfUsers="0" pluginCategoryId="1234"/>
     
-    <Feed id="1" version="1" pending="false" url="http://www.google1.com"
+    <Feed id="1" version="1" pending="0" url="http://www.google1.com"
         updated="1000" updateFrequency="10" streamPluginId="1" title="sometitle" />
-    <Feed id="2" version="1" pending="false" url="http://www.google2.com"
+    <Feed id="2" version="1" pending="0" url="http://www.google2.com"
         updated="1000" updateFrequency="10" streamPluginId="1" title="sometitle" />
-    <Feed id="3" version="1" pending="false" url="http://www.google3.com"
+    <Feed id="3" version="1" pending="0" url="http://www.google3.com"
         updated="1000" updateFrequency="60" streamPluginId="2" title="sometitle" />
-    <Feed id="4" version="1" pending="false" url="http://www.google4.com"
+    <Feed id="4" version="1" pending="0" url="http://www.google4.com"
         updated="1000" streamPluginId="3" title="sometitle" />
-    <Feed id="5" version="1" pending="false" url="http://www.google5.com"
+    <Feed id="5" version="1" pending="0" url="http://www.google5.com"
         updated="1000" updateFrequency="30" streamPluginId="1" title="sometitle" />
         
 	<!-- Gadget Definitions -->
 	<GadgetDefinition id="1831" version="4673"
 		url="http://www.example.com/gadget1.xml" uuid="129d4fae-7dec-11d0-a765-00a0c91e6bf6"
 		gadgetCategoryId="4565" created="2008-01-01 12:00:00.000"
-		showInGallery="true" numberOfUsers="1" />
+		showInGallery="1" numberOfUsers="1" />
 	<GadgetDefinition id="4789" version="5099"
 		url="http://www.example.com/gadget2.xml" uuid="568d4fae-7dec-11d0-a765-00a0c91e6bf6"
 		gadgetCategoryId="4327" created="2008-01-01 12:00:00.000"
-		showInGallery="true" numberOfUsers="4" />
+		showInGallery="1" numberOfUsers="4" />
 	<GadgetDefinition id="4790" version="5100"
 		url="http://www.example.com/gadget3.xml" uuid="568d4fae-7dec-11d0-a765-00a0c91e6bf7"
 		gadgetCategoryId="4565" created="2009-01-01 12:00:00.000"
-		showInGallery="true" numberOfUsers="3" />
+		showInGallery="1" numberOfUsers="3" />
 	<GadgetDefinition id="4791" version="5101"
 		url="http://www.example.com/gadget4.xml" uuid="568d4fae-7dec-11d0-a765-00a0c91e6bf8"
 		gadgetCategoryId="4327" created="2009-01-01 12:00:00.000"
-		showInGallery="true" numberOfUsers="2" />
+		showInGallery="1" numberOfUsers="2" />
 
 	<!--
 		TabTemplates that truly are templates (type is set)These should not be
 		associated with tab group.
 	-->
 	<TabTemplate id="5555" version="1" tabName="Welcome" type="WELCOME"
-		tabLayout="TWOCOLUMN" deleted="false" />
+		tabLayout="TWOCOLUMN" deleted="0" />
 
 	<TabGroup id="4231" version="5783" />
 	<TabTemplate id="1097" version="1" tabName="Ford Tab 1"
-		tabLayout="TWOCOLUMN" deleted="false" />
+		tabLayout="TWOCOLUMN" deleted="0" />
 	<TabTemplate id="1787" version="1" tabName="Ford Tab 2"
-		tabLayout="TWOCOLUMNLEFTWIDE" deleted="false" />
+		tabLayout="TWOCOLUMNLEFTWIDE" deleted="0" />
 	<TabTemplate id="3253" version="1" tabName="Ford Tab 3"
-		tabLayout="THREECOLUMN" deleted="false" />
+		tabLayout="THREECOLUMN" deleted="0" />
 	<Tab id="1097" version="1277" tabIndex="0" templateId="1097"
-		tabGroupId="4231" deleted="false" dateDeleted="2009-01-01 12:00:00.000" />
+		tabGroupId="4231" deleted="0" dateDeleted="2009-01-01 12:00:00.000" />
 	<Tab id="1787" version="3571" tabIndex="1" templateId="1787"
-		tabGroupId="4231" deleted="false" dateDeleted="2009-01-01 12:00:00.000" />
+		tabGroupId="4231" deleted="0" dateDeleted="2009-01-01 12:00:00.000" />
 	<Tab id="3253" version="2099" tabIndex="2" templateId="3253"
-		tabGroupId="4231" deleted="false" dateDeleted="2009-01-01 12:00:00.000" />
+		tabGroupId="4231" deleted="0" dateDeleted="2009-01-01 12:00:00.000" />
 
 
 
@@ -98,9 +99,9 @@
 		don't have a tabIndex.
 	-->
 	<TabTemplate id="3187" version="1" tabName="Ford Tab 4"
-		tabLayout="THREECOLUMNRIGHTWIDEHEADER" deleted="true" dateDeleted="2000-01-01 12:00:00.000" />
+		tabLayout="THREECOLUMNRIGHTWIDEHEADER" deleted="1" dateDeleted="2000-01-01 12:00:00.000" />
 	<Tab id="3187" version="2837" tabIndex="1" templateId="3187"
-		tabGroupId="4231" deleted="true" dateDeleted="2000-01-01 12:00:00.000" />
+		tabGroupId="4231" deleted="1" dateDeleted="2000-01-01 12:00:00.000" />
 
 
 	<!-- Tab Group Themes -->
@@ -110,7 +111,7 @@
 		description="Test Theme 102 Description" bannerId="banner id"
 		authorName="mortimer Snerd" authorEmail="vswatter@gmail.com" name="Test Theme"
 		themeCategoryId="4566" numberOfUsers="100" created="2008-01-01 12:00:00.000" />
-			
+		
     <!-- Core StreamScopes -->
     <StreamScope id="50000" scopeType="PERSONS_FOLLOWED_STREAMS" uniqueKey="follow" version="1" destinationEntityId="0" />
     <StreamScope id="50001" scopeType="PERSONS_PARENT_ORGANIZATION" uniqueKey="parentorg" version="1" destinationEntityId="0" />
@@ -137,7 +138,7 @@
 	<!-- Organization StreamScopes -->
 	<StreamScope id="837433" scopeType="ORGANIZATION" uniqueKey="tstorgname" version="1" destinationEntityId="0" />
 	<StreamScope id="8374533" scopeType="ORGANIZATION" uniqueKey="child1orgname" version="1" destinationEntityId="0" />
-	<StreamScope id="9374533" scopeType="ORGANIZATION" uniqueKey="child2orgname" version="1" destinationEntityId="0" />	
+	<StreamScope id="9374533" scopeType="ORGANIZATION" uniqueKey="child2orgname" version="1" destinationEntityId="0" />		
 	
 	<!-- Resource StreamScope -->
 	<StreamScope id="100" scopeType="RESOURCE" uniqueKey="resource1" version="1" destinationEntityId="0" />
@@ -146,21 +147,21 @@
 	<StreamScope id="102" scopeType="RESOURCE" uniqueKey="http://foo.com/foo.html" version="1" destinationEntityId="0" />	
 	
 	<Organization id="5" version="1" description="Mission Statement"
-		name="Test Organization Name" allUsersCanCreateGroups="true"
+		name="Test Organization Name" allUsersCanCreateGroups="1"
 		shortName="tstorgname" url="http://www.TestOrganizationName.com"
 		parentOrganizationId="5" 
 		childOrganizationCount="2" descendantGroupCount="5"
 		descendantEmployeeCount="2" employeeFollowerCount="0" bannerId="Foo"
 		updatesCount="6" streamScopeId="837433" />
 	<Organization id="6" version="1" description="Child 1 Mission Statement"
-		name="Child 1 Organization Name" allUsersCanCreateGroups="false"
+		name="Child 1 Organization Name" allUsersCanCreateGroups="0"
 		shortName="child1orgname" url="http://www.Child_1_OrganizationName.com"
 		parentOrganizationId="5" 
 		childOrganizationCount="0" descendantGroupCount="0"
 		descendantEmployeeCount="0" employeeFollowerCount="2" bannerId="Bar"
 		updatesCount="61" streamScopeId="8374533" />
 	<Organization id="7" version="1" description="Child_2_Mission Statement"
-		name="Child 2 Organization Name" allUsersCanCreateGroups="true"
+		name="Child 2 Organization Name" allUsersCanCreateGroups="1"
 		shortName="child2orgname" url="http://www.Child_2_OrganizationName.com"
 		parentOrganizationId="5" 
 		childOrganizationCount="0" descendantGroupCount="2"
@@ -190,7 +191,7 @@
 		startTabGroupId="4231" avatarId="sdfsdsd"
 		openSocialId="2d359911-0977-418a-9490-57e8252b1a42" dateAdded="2009-01-01 05:54:54"
 		updatesCount="5" streamViewHiddenLineIndex="1" streamScopeId="1"
-		commentable="true" streamPostable="true" accountlocked="false"
+		commentable="1" streamPostable="1" accountlocked="0"
 		groupstreamhiddenlineindex="3" optOutVideoIds="5;"/>
 	<Person id="142" version="1117" accountId="fordp2" firstName="Ford"
 		middleName="X" lastName="Prefect" preferredName="Volgon-Vwatter"
@@ -200,7 +201,7 @@
 		startTabGroupId="4231" avatarId="sdfsd"
 		openSocialId="2d359911-0977-418a-9490-57e8252b1142" dateAdded="2009-01-01 05:54:54"
 		updatesCount="5" streamViewHiddenLineIndex="0" streamScopeId="2"
-		commentable="true" streamPostable="false" accountlocked="false"
+		commentable="1" streamPostable="0" accountlocked="0"
 		groupstreamhiddenlineindex="3" optOutVideoIds="5;"/>
 		
 		
@@ -249,7 +250,7 @@
 		authorEmail="vswatter@gmail.com" numberOfUsers="23"
 		created="2009-01-01 12:00:00.000" />
 
-    <Background id="1099" personId="99" version="1118" />
+ <Background id="1099" personId="99" version="1118" />
 	<Background id="1042" personId="42" version="1117" />
 	<BackgroundItem id="120" version="0" backgroundType="SKILL"
 		name="skill_1" />
@@ -300,6 +301,7 @@
         
 	<Organization_Capability OrganizationId="6" capabilityId="130" />
 
+
 	<Job id="2042" personId="42" version="1117" companyName="Example"
 		industry="Aerospace" title="Engineer" datefrom="2008-01-01 12:00:00.000"
 		dateTo="2009-01-01 12:00:00.000" description="this that and the other thing" />
@@ -348,14 +350,14 @@
 
 	<Gadget id="5039" version="3467" gadgetDefinitionId="1831"
 		ownerId="4507" zoneNumber="0" zoneIndex="0" tabTemplateId="1097"
-		deleted="false" dateDeleted="2009-01-01 12:00:00.000" minimized="false" />
+		deleted="0" dateDeleted="2009-01-01 12:00:00.000" minimized="0" />
 
 	<Gadget id="6863" version="3413" gadgetDefinitionId="1831"
 		ownerId="98" zoneNumber="0" zoneIndex="1" tabTemplateId="1097"
-		deleted="false" dateDeleted="2009-01-01 12:00:00.000" minimized="false" />
+		deleted="0" dateDeleted="2009-01-01 12:00:00.000" minimized="0" />
 	<Gadget id="4969" version="4391" gadgetDefinitionId="4789"
 		ownerId="98" zoneNumber="2" zoneIndex="0" tabTemplateId="1097"
-		deleted="false" dateDeleted="2009-01-01 12:00:00.000" minimized="false" />
+		deleted="0" dateDeleted="2009-01-01 12:00:00.000" minimized="0" />
 
 	<!-- Four Gadgets in Ford's 3rd tab - three in zone 1, 1 in zone 2, 3 in zone 3 -->
 	<!-- * mix up the IDs to test sort * -->
@@ -364,33 +366,33 @@
 
 	<Gadget id="7841" version="6203" gadgetDefinitionId="1831"
 		ownerId="98" zoneNumber="0" zoneIndex="0" tabTemplateId="3253"
-		deleted="false" dateDeleted="2009-01-01 12:00:00.000" minimized="false" 
+		deleted="0" dateDeleted="2009-01-01 12:00:00.000" minimized="0" 
         gadgetUserPref="pref1:'value1',pref2:'value2'}"/>
 	<Gadget id="5749" version="5623" gadgetDefinitionId="4789"
 		ownerId="99" zoneNumber="0" zoneIndex="1" tabTemplateId="3253"
-		deleted="false" dateDeleted="2009-01-01 12:00:00.000" minimized="false" 
+		deleted="0" dateDeleted="2009-01-01 12:00:00.000" minimized="0" 
         gadgetUserPref="{pref1:'othervalue1',pref2:'othervalue2'}"/>
 	<Gadget id="7879" version="6907" gadgetDefinitionId="4790"
 		ownerId="99" zoneNumber="0" zoneIndex="2" tabTemplateId="3253"
-		deleted="false" dateDeleted="2009-01-01 12:00:00.000" minimized="false" />
+		deleted="0" dateDeleted="2009-01-01 12:00:00.000" minimized="0" />
 	<Gadget id="7753" version="7159" gadgetDefinitionId="4789"
 		ownerId="4507" zoneNumber="1" zoneIndex="0" tabTemplateId="3253"
-		deleted="false" dateDeleted="2009-01-01 12:00:00.000" minimized="false" />
+		deleted="0" dateDeleted="2009-01-01 12:00:00.000" minimized="0" />
 	<Gadget id="3754" version="4825" gadgetDefinitionId="4789"
 		ownerId="4507" zoneNumber="1" zoneIndex="1" tabTemplateId="3253"
-		deleted="true" dateDeleted="2009-01-01 12:00:00.000" minimized="false" />
+		deleted="1" dateDeleted="2009-01-01 12:00:00.000" minimized="0" />
     <Gadget id="3759" version="4821" gadgetDefinitionId="4789"
         ownerId="4507" zoneNumber="2" zoneIndex="0" tabTemplateId="3253"
-        deleted="false" dateDeleted="2009-01-01 12:00:00.000" minimized="false" />
+        deleted="0" dateDeleted="2009-01-01 12:00:00.000" minimized="0" />
     <Gadget id="3751" version="4820" gadgetDefinitionId="4789"
         ownerId="4507" zoneNumber="2" zoneIndex="1" tabTemplateId="3253"
-        deleted="false" dateDeleted="2009-01-01 12:00:00.000" minimized="false" />
+        deleted="0" dateDeleted="2009-01-01 12:00:00.000" minimized="0" />
     <Gadget id="3781" version="4819" gadgetDefinitionId="4789"
         ownerId="4507" zoneNumber="2" zoneIndex="2" tabTemplateId="3253"
-        deleted="false" dateDeleted="2009-01-01 12:00:00.000" minimized="false" />
+        deleted="0" dateDeleted="2009-01-01 12:00:00.000" minimized="0" />
                 
-    <NotificationFilterPreference version="1" personId="42" notifierType="email" notificationCategory="FOLLOW_PERSON" />
-    <NotificationFilterPreference version="1" personId="42" notifierType="email" notificationCategory="FOLLOW_GROUP" />
+    <NotifFilterPreference id="1" version="1" notifierType="email" notificationCategory="FOLLOW_PERSON" personId="42" />
+    <NotifFilterPreference id="2" version="1" notifierType="email" notificationCategory="FOLLOW_GROUP" personId="42" />
     
 	<!-- *********************************** -->
 	<!-- Carl Sagan - Tab Group with one tabs -->
@@ -402,7 +404,7 @@
 		startTabGroupId="5393" avatarId="abcdefg"
 		openSocialId="2d359911-0977-418a-9490-57e8252b4507" dateAdded="2009-01-01 05:54:54"
 		updatesCount="5" streamViewHiddenLineIndex="0" streamScopeId="3" 
-		commentable="true" streamPostable="true" accountlocked="false"
+		commentable="1" streamPostable="1" accountlocked="0"
 		groupstreamhiddenlineindex="3" optOutVideoIds="5;"/>
 		
 	<Person_RelatedOrganization personId="4507" organizationId="7" />
@@ -415,7 +417,7 @@
 		startTabGroupId="4231" avatarId="heynow"
 		openSocialId="2d359911-0977-418a-9490-57e8252b1a98" dateAdded="2009-01-01 05:54:54"
 		updatesCount="5" streamViewHiddenLineIndex="0" streamScopeId="87433" 
-		commentable="true" streamPostable="true" accountlocked="false"
+		commentable="1" streamPostable="1" accountlocked="0"
 		groupstreamhiddenlineindex="3" optOutVideoIds="6;"/>
 
 	<Person id="99" version="5" accountId="mrburns" firstName="Monty"
@@ -426,10 +428,10 @@
 		startTabGroupId="4231" avatarId="foofoo"
 		openSocialId="2d359911-0977-418a-9490-57e8252b1a99" dateAdded="2009-01-01 05:54:54"
 		updatesCount="5" streamViewHiddenLineIndex="0" streamScopeId="4" 
-		commentable="true" streamPostable="true" accountlocked="false"
+		commentable="1" streamPostable="1" accountlocked="0"
 		groupstreamhiddenlineindex="3" optOutVideoIds="5;"/>
 
-    <NotificationFilterPreference version="1" personId="99" notifierType="email" notificationCategory="COMMENT" />
+    <NotifFilterPreference id="3" version="1" personId="99" notifierType="email" notificationCategory="COMMENT" />
 
 	<!--
 		SMithers has three related organizations including the parent
@@ -466,9 +468,9 @@
 
 	<TabGroup id="5393" version="4549" />
 	<TabTemplate id="4703" version="1" tabName="Carl's First"
-		tabLayout="TWOCOLUMN" deleted="false" />
+		tabLayout="TWOCOLUMN" deleted="0" />
 	<Tab id="4703" version="3821" tabIndex="0" templateId="4703"
-		tabGroupId="5393" deleted="false" dateDeleted="2009-01-01 12:00:00.000" />
+		tabGroupId="5393" deleted="0" dateDeleted="2009-01-01 12:00:00.000" />
 
 	<PersistentLogin id="696" version="111" accountId="mrburns"
 		tokenValue="abc123" tokenExpirationDate="123456" />
@@ -478,8 +480,8 @@
 		- in zone 1
 	-->
 	<Gadget id="1513" version="3467" gadgetDefinitionId="4789"
-		zoneNumber="1" zoneIndex="0" tabTemplateId="4703" deleted="false"
-		dateDeleted="2009-01-01 12:00:00.000" minimized="false" />
+		zoneNumber="1" zoneIndex="0" tabTemplateId="4703" deleted="0"
+		dateDeleted="2009-01-01 12:00:00.000" minimized="0" />
 
 	<!-- ************************************ -->
 	<!--  Test Application Data -->
@@ -505,70 +507,70 @@
 
 
 	<DomainGroup id="1" version="1" description="Group_1_Mission Statement"
-		updatesCount="5" name="E Group 1 Name" shortName="group1" publicgroup="true"
+		updatesCount="5" name="E Group 1 Name" shortName="group1" publicgroup="1"
 		followersCount="3" parentOrganizationId="7"
-		dateAdded="2009-02-01 05:54:54" isPending="false" 
-		createdById="42" streamScopeId="874" commentable="true" streamPostable="true"
-		suppressPostNotifToMember="false" suppressPostNotifToCoordinator="false" />
+		dateAdded="2009-02-01 05:54:54" isPending="0" 
+		createdById="42" streamScopeId="874" commentable="1" streamPostable="1"
+		suppressPostNotifToMember="0" suppressPostNotifToCoordinator="0" />
 
 	<DomainGroup id="2" version="1" description="Group_2_Mission Statement"
-		updatesCount="5" name="D Group 1 Name" shortName="group2" publicgroup="true"
+		updatesCount="5" name="D Group 1 Name" shortName="group2" publicgroup="1"
 		followersCount="1" parentOrganizationId="7" 
-		dateAdded="2009-01-01 05:54:54" isPending="false" 
-		createdById="42" streamScopeId="875" commentable="true" streamPostable="true"
-		suppressPostNotifToMember="false" suppressPostNotifToCoordinator="false" />
+		dateAdded="2009-01-01 05:54:54" isPending="0" 
+		createdById="42" streamScopeId="875" commentable="1" streamPostable="1"
+		suppressPostNotifToMember="0" suppressPostNotifToCoordinator="0" />
 
 	<DomainGroup id="3" version="1" description="Group_3_Mission Statement"
-		updatesCount="8" name="C Group 1 Name" shortName="group3" publicgroup="true"
+		updatesCount="8" name="C Group 1 Name" shortName="group3" publicgroup="1"
 		followersCount="10" parentOrganizationId="6" 
-		dateAdded="2009-04-01 05:54:54" isPending="false" 
-		createdById="42" streamScopeId="876" commentable="true" streamPostable="true"
-		suppressPostNotifToMember="false" suppressPostNotifToCoordinator="false" />
+		dateAdded="2009-04-01 05:54:54" isPending="0" 
+		createdById="42" streamScopeId="876" commentable="1" streamPostable="1"
+		suppressPostNotifToMember="0" suppressPostNotifToCoordinator="0" />
 
 	<DomainGroup id="4" version="1" description="Group_4_Mission Statement"
-		updatesCount="8" name="BGroup 1 Name" shortName="group4" publicgroup="true"
+		updatesCount="8" name="BGroup 1 Name" shortName="group4" publicgroup="1"
 		followersCount="1" parentOrganizationId="6" 
-		dateAdded="2009-05-01 05:54:54" isPending="false" 
-		createdById="42" streamScopeId="877" commentable="true" streamPostable="true"
-		suppressPostNotifToMember="false" suppressPostNotifToCoordinator="false" />
+		dateAdded="2009-05-01 05:54:54" isPending="0" 
+		createdById="42" streamScopeId="877" commentable="1" streamPostable="1"
+		suppressPostNotifToMember="0" suppressPostNotifToCoordinator="0" />
 
 	<DomainGroup id="5" version="1" description="Group_5_Mission Statement"
-		updatesCount="8" name="A Group 1 Name" shortName="group5" publicgroup="true"
+		updatesCount="8" name="A Group 1 Name" shortName="group5" publicgroup="1"
 		followersCount="0" parentOrganizationId="5" 
-		dateAdded="2008-01-01 05:54:54" isPending="false" 
-		createdById="42" streamScopeId="878"  commentable="true" streamPostable="true"
-		suppressPostNotifToMember="false" suppressPostNotifToCoordinator="false" />
+		dateAdded="2008-01-01 05:54:54" isPending="0" 
+		createdById="42" streamScopeId="878"  commentable="1" streamPostable="1"
+		suppressPostNotifToMember="0" suppressPostNotifToCoordinator="0" />
 
 	<DomainGroup id="6" version="1" description="Group_6_Mission Statement"
-		updatesCount="8" name="Pending Group" shortName="pendinggroup" publicgroup="true"
+		updatesCount="8" name="Pending Group" shortName="pendinggroup" publicgroup="1"
 		followersCount="0" parentOrganizationId="5" 
-		dateAdded="2008-01-01 05:54:54" isPending="true" 
-		createdById="42" streamScopeId="879" commentable="true" streamPostable="true"
-		suppressPostNotifToMember="false" suppressPostNotifToCoordinator="false" />
+		dateAdded="2008-01-01 05:54:54" isPending="1" 
+		createdById="42" streamScopeId="879" commentable="1" streamPostable="1"
+		suppressPostNotifToMember="0" suppressPostNotifToCoordinator="0" />
 		
 	<DomainGroup id="7" version="1" description="Group_7_Mission Statement"
-		updatesCount="8" name="Pending Group 2" shortName="pendinggroup2" publicgroup="true"
+		updatesCount="8" name="Pending Group 2" shortName="pendinggroup2" publicgroup="1"
 		followersCount="0" parentOrganizationId="6" 
-		dateAdded="2008-01-01 05:54:55" isPending="true" 
-		createdById="42" streamScopeId="880" commentable="true" streamPostable="true"
-		suppressPostNotifToMember="false" suppressPostNotifToCoordinator="false" />
+		dateAdded="2008-01-01 05:54:55" isPending="1" 
+		createdById="42" streamScopeId="880" commentable="1" streamPostable="1"
+		suppressPostNotifToMember="0" suppressPostNotifToCoordinator="0" />
 		
 	<DomainGroup id="8" version="1" description="Group_8_Mission Statement"
-		updatesCount="8" name="Pending Group 3" shortName="pendinggroup3" publicgroup="true"
+		updatesCount="8" name="Pending Group 3" shortName="pendinggroup3" publicgroup="1"
 		followersCount="0" parentOrganizationId="5" 
-		dateAdded="2008-01-01 05:54:56" isPending="true" 
-		createdById="4507" streamScopeId="881" commentable="true" streamPostable="true"
-		suppressPostNotifToMember="false" suppressPostNotifToCoordinator="false" />
+		dateAdded="2008-01-01 05:54:56" isPending="1" 
+		createdById="4507" streamScopeId="881" commentable="1" streamPostable="1"
+		suppressPostNotifToMember="0" suppressPostNotifToCoordinator="0" />
 	
 
 	<!-- Smithers and Burns follow group 1 -->
-	<GroupFollower followerId="99" followingId="1" groupstreamindex="0" receivenewactivitynotifications="false" />
-	<GroupFollower followerId="98" followingId="1" groupstreamindex="0" receiveNewActivityNotifications="true" />
+	<GroupFollower followerId="99" followingId="1" groupstreamindex="0" receiveNewActivityNotification="0" />
+	<GroupFollower followerId="98" followingId="1" groupstreamindex="0" receiveNewActivityNotification="0" />
 	
 	<!-- Fordp follows groups 1, 2, and 3 -->
-	<GroupFollower followerId="42" followingId="1" groupstreamindex="0" receiveNewActivityNotifications="true" />
-	<GroupFollower followerId="42" followingId="2" groupstreamindex="1" receiveNewActivityNotifications="true" />
-	<GroupFollower followerId="42" followingId="3" groupstreamindex="2" receiveNewActivityNotifications="true" />
+	<GroupFollower followerId="42" followingId="1" groupstreamindex="0" receiveNewActivityNotification="1" />
+	<GroupFollower followerId="42" followingId="2" groupstreamindex="1" receiveNewActivityNotification="1" />
+	<GroupFollower followerId="42" followingId="3" groupstreamindex="2" receiveNewActivityNotification="1" />
 
 	<!-- Smithers and Ford are coordinators for Group 1 -->
 	<Group_Coordinators DomainGroup_id="1"
@@ -578,7 +580,7 @@
 
 
 	<!-- Sagan follows group 2 -->
-	<GroupFollower followerId="4507" followingId="2" groupstreamindex="0" receiveNewActivityNotifications="true" />
+	<GroupFollower followerId="4507" followingId="2" groupstreamindex="0" receiveNewActivityNotification="1" />
 
 	<!-- FordP2 is a coordinator for group 2 -->
 	<Group_Coordinators DomainGroup_id="2"
@@ -614,57 +616,59 @@
 		
 	<Activity id="6789" version="1" actorId="smithers" actorType="PERSON" baseObject="" baseObjectType="NOTE" 
 		openSocialId="123" postedTime="2009-10-27 06:54:00" updated="2009-10-27 06:55:00"
-		verb="POST" recipientParentOrgId="7" streamScopeId="87433" isDestinationStreamPublic="true" originalActorId="smithers" 
-		originalActorType="PERSON" flagged="true" showInStream="true" />
+		verb="POST" recipientParentOrgId="7" streamScopeId="87433" isDestinationStreamPublic="1" originalActorId="smithers" 
+		originalActorType="PERSON" flagged="1" showInStream="1"/>
 	
 	<Activity id="6790" version="1" actorId="smithers" actorType="PERSON" baseObject="" baseObjectType="NOTE"
 		openSocialId="456" postedTime="2009-10-27 06:55:00" updated="2009-10-27 06:56:00"
-		verb="POST" recipientParentOrgId="7" streamScopeId="87433" isDestinationStreamPublic="true" 
-		flagged="false" showInStream="true"/>
+		verb="POST" recipientParentOrgId="7" streamScopeId="87433" isDestinationStreamPublic="1" 
+		flagged="0" showInStream="1"/>
 		
     <Activity id="6791" version="1" actorId="fordp" actorType="PERSON" baseObject="" baseObjectType="NOTE"
         openSocialId="789" postedTime="2009-10-27 06:56:00" updated="2009-10-27 06:56:00"
-        verb="POST" recipientParentOrgId="6" streamScopeId="2" isDestinationStreamPublic="true" originalActorId="smithers" 
-		originalActorType="PERSON" flagged="false" showInStream="true"/>
+        verb="POST" recipientParentOrgId="6" streamScopeId="2" isDestinationStreamPublic="1" originalActorId="smithers" 
+		originalActorType="PERSON" flagged="0" showInStream="1"/>
     
     <Activity id="6792" version="1" actorId="fordp2" actorType="PERSON" baseObject="" baseObjectType="NOTE"
         openSocialId="012" postedTime="2009-10-27 06:57:00" updated="2009-10-27 06:56:00"
-        verb="POST" recipientParentOrgId="5" streamScopeId="1" isDestinationStreamPublic="true" originalActorId="csagan" 
-		originalActorType="PERSON" flagged="false" showInStream="true"/>
+        verb="POST" recipientParentOrgId="5" streamScopeId="1" isDestinationStreamPublic="1" originalActorId="csagan" 
+		originalActorType="PERSON" flagged="0" showInStream="1"/>
         
     <!-- smithers posts a note to group1 stream -->
     <Activity id="6793" version="1" actorId="smithers" actorType="PERSON" baseObject="" baseObjectType="NOTE"
         openSocialId="234" postedTime="2010-01-27 06:58:00" updated="2010-01-27 06:58:00"
-        verb="POST" recipientParentOrgId="5" streamScopeId="874" isDestinationStreamPublic="true" originalActorId="smithers" 
-        originalActorType="PERSON" flagged="false" showInStream="true"/>
-        
-    
+        verb="POST" recipientParentOrgId="5" streamScopeId="874" isDestinationStreamPublic="1" originalActorId="smithers" 
+		originalActorType="PERSON" flagged="0" showInStream="1"/>
 
-	<Comment id="1" version="0" body="mr burns comment to smithers 1" 
+<!-- can't do this, as case sensitive means all table names needs to be capitalized, 
+     and not case sensitive means everthing goes uppercase, and comment is "comment" in oracle db -->
+     
+	<Comment1 id="1" version="0" body="mr burns comment to smithers 1" 
 		timesent="2009-09-04 07:00:00" authorpersonid="99" activityid="6789" />
-	<Comment id="2" version="0" body="mr burns comment to smithers 2" 
+	<Comment1 id="2" version="0" body="mr burns comment to smithers 2" 
 		timesent="2009-09-05 07:00:00" authorpersonid="99" activityid="6789" />
-	<Comment id="3" version="0" body="mr burns comment to smithers 3" 
+	<Comment1 id="3" version="0" body="mr burns comment to smithers 3" 
 		timesent="2009-09-06 07:00:00" authorpersonid="99" activityid="6789" />
 		
-	<Comment id="4" version="0" body="ford to ford2" 
+	<Comment1 id="4" version="0" body="ford to ford2" 
 		timesent="2009-09-06 07:00:00" authorpersonid="42" activityid="6792" />
 
-	<Comment id="5" version="0" body="sdlfkjds" timesent="2009-09-06 07:00:00" 
+	<Comment1 id="5" version="0" body="sdlfkjds" timesent="2009-09-06 07:00:00" 
 		authorpersonid="42" activityid="6790" />
-	<Comment id="6" version="0" body="sdlfkjds" timesent="2009-09-06 07:00:00" 
+	<Comment1 id="6" version="0" body="sdlfkjds" timesent="2009-09-06 07:00:00" 
 		authorpersonid="99" activityid="6790" />
-	<Comment id="7" version="0" body="sdlfkjds" timesent="2009-09-06 07:00:00" 
+	<Comment1 id="7" version="0" body="sdlfkjds" timesent="2009-09-06 07:00:00" 
 		authorpersonid="42" activityid="6790" />
 		
-	<Comment id="8" version="0" body="sdlfkjds" timesent="2009-09-06 07:00:00" 
+	<Comment1 id="8" version="0" body="sdlfkjds" timesent="2009-09-06 07:00:00" 
 		authorpersonid="42" activityid="6791" />
 		
-	<Comment id="9" version="0" body="smithers commenting on his own group post" timesent="2009-10-27 06:56:00"
+	<Comment1 id="9" version="0" body="smithers commenting on his own group post" timesent="2009-10-27 06:56:00"
 		authorpersonid="98" activityid="6793"/>
-	<Comment id="10" version="0" body="burns commenting on smithers group post" timesent="2009-10-27 06:56:00"
+	<Comment1 id="10" version="0" body="burns commenting on smithers group post" timesent="2009-10-27 06:56:00"
 		authorpersonid="99" activityid="6793"/>
-		
+	  
+	 	
 	<!-- tstorgname has tags #bar(4), #foo(3), #development(2), #java(1)  -->
 	<StreamHashTag id="1" version="0" hashTagId="1" activityId="6789" streamScopeType="ORGANIZATION" streamEntityUniqueKey="tstorgname" 
 		activityDate="2009-10-27 06:54:00" />
@@ -742,20 +746,20 @@
 	<OAuthToken id="108" version="1" consumerId="102" viewerId="123"
 		ownerId="456" accessToken="accesstoken4" tokenSecret="accesssecret1" />
 		
-	<OAuthDomainEntry id="101" version="1" appId="application1" authorized="false" callbackToken="" callbackTokenAttempts="0"
+	<OAuthDomainEntry id="101" version="1" appId="application1" authorized="0" callbackToken="" callbackTokenAttempts="0"
 		callbackUrl="http://localhost:8080/gadgets/oauthcallback" consumerId="101" container="container1"
 		domain="domain1" issueTime="2009-09-14 09:11:36.157" oauthVersion="1.0" token="token1"
-		tokenSecret="tokensecret1" type="REQUEST" userId="" callbackUrlSigned="true" />
+		tokenSecret="tokensecret1" type="REQUEST" userId="" callbackUrlSigned="1" />
 
-	<OAuthDomainEntry id="102" version="1" appId="application2" authorized="false" callbackToken="" callbackTokenAttempts="0"
+	<OAuthDomainEntry id="102" version="1" appId="application2" authorized="0" callbackToken="" callbackTokenAttempts="0"
 		callbackUrl="http://localhost:8080/gadgets/oauthcallback" consumerId="101" container="container2"
 		domain="domain2" issueTime="2009-09-14 09:11:36.157" oauthVersion="1.0" token="token2"
-		tokenSecret="tokensecret2" type="REQUEST" userId="" callbackUrlSigned="true" />
+		tokenSecret="tokensecret2" type="REQUEST" userId="" callbackUrlSigned="1" />
 
-	<OAuthDomainEntry id="103" version="1" appId="application3" authorized="false" callbackToken="" callbackTokenAttempts="0"
+	<OAuthDomainEntry id="103" version="1" appId="application3" authorized="0" callbackToken="" callbackTokenAttempts="0"
 		callbackUrl="http://localhost:8080/gadgets/oauthcallback" consumerId="101" container="container3"
 		domain="domain3" issueTime="2009-09-14 09:11:36.157" oauthVersion="1.0" token="token3"
-		tokenSecret="tokensecret3" type="REQUEST" userId=""  callbackUrlSigned="true"/>
+		tokenSecret="tokensecret3" type="REQUEST" userId=""  callbackUrlSigned="1"/>
 		
 
 	<!-- Mr burns "stars" activity -->	
@@ -781,33 +785,33 @@
 	
 	<SystemSettings id="1001" version="1122" siteLabel="some site label" 
 		termsOfService="some terms of service" tosPromptInterval="1" 
-		contentWarningText="some content warning" contentExpiration="1" sendWelcomeEmails="true" 
+		contentWarningText="some content warning" contentExpiration="1" sendWelcomeEmails="1" 
 		supportStreamGroupShortName="group1"
 		/>
 	<MembershipCriteria id="11" version="2" criteria="testCriterion1" systemSettingsId="1001" />
 	<MembershipCriteria id="12" version="2" criteria="testCriterion2" systemSettingsId="1001" />
 	
-	<ApplicationAlertNotification id="1" version="1" notificationDate="2009-12-12 10:54:06.000" isRead="false" 
+	<ApplAlertNotification id="1" version="1" notificationDate="2009-12-12 10:54:06.000" isRead="0" 
 		recipientId="99" notificationtype="POST_TO_PERSONAL_STREAM" 
 		actorName="Ford Prefect" actorAccountId="fordp"
 		activityId="1" activityType="NOTE" 
 		destinationType="PERSON" destinationUniqueId="smithers" destinationName="Mr Smithers"
 		auxiliaryType="NOTSET" auxiliaryUniqueId="" auxiliaryName="" />
 
-	<ApplicationAlertNotification id="2" version="1" notificationDate="2010-01-03 15:23:19.000" isRead="true" 
+	<ApplAlertNotification id="2" version="1" notificationDate="2010-01-03 15:23:19.000" isRead="1" 
 		recipientId="99" notificationtype="POST_TO_PERSONAL_STREAM"
 		actorName="Mr Smithers" actorAccountId="smithers"
 		activityId="2" activityType="NOTE" 
 		destinationType="PERSON" destinationUniqueId="smithers" destinationName="Mr Smithers"
 		auxiliaryType="NOTSET" auxiliaryUniqueId="" auxiliaryName="" />
 
-	<ApplicationAlertNotification id="3" version="1" notificationDate="2010-02-21 12:07:17.000" isRead="false"
+	<ApplAlertNotification id="3" version="1" notificationDate="2010-02-21 12:07:17.000" isRead="0"
 		recipientId="99" notificationtype="FOLLOW_PERSON"
 		actorName="Ford Prefect" actorAccountId="fordp"
 		destinationType="PERSON" destinationUniqueId="smithers" destinationName="Mr Smithers"
 		auxiliaryType="NOTSET" auxiliaryUniqueId="" auxiliaryName="" />
 
-	<ApplicationAlertNotification id="4" version="1" notificationDate="2010-02-23 11:06:29.000" isRead="false"
+	<ApplAlertNotification id="4" version="1" notificationDate="2010-02-23 11:06:29.000" isRead="0"
 		recipientId="98" notificationtype="POST_TO_PERSONAL_STREAM"
 		actorName="Mr. Burns" actorAccountId="burns"
 		activityId="4" activityType="NOTE" 
@@ -826,19 +830,19 @@
        innercontenttitle="Inner Content Title 3" page="START" videoheight="600" videourl="http://google.com"
        videowidth="200" /> 
     
-    <dailyusagesummary id="1" messagecount="5" pageviewcount="55" streamcontributorcount="555" 
+    <DailyUsageSummary id="1" messagecount="5" pageviewcount="55" streamcontributorcount="555" 
         streamviewcount="5555" streamviewercount="55555" uniquevisitorcount="555555" usagedate="2011-04-07" avgactivityresponsetime="5" 
-        isWeekday="true"
+        isWeekday="1"
         />
         
-    <dailyusagesummary id="2" messagecount="6" pageviewcount="66" streamcontributorcount="666" 
+    <DailyUsageSummary id="2" messagecount="6" pageviewcount="66" streamcontributorcount="666" 
         streamviewcount="6666" streamviewercount="66666" uniquevisitorcount="666666" usagedate="2011-04-08" avgactivityresponsetime="6" 
-        isWeekday="false"
+        isWeekday="0"
         />
         
-    <dailyusagesummary id="3" messagecount="7" pageviewcount="77" streamcontributorcount="777" 
+    <DailyUsageSummary id="3" messagecount="7" pageviewcount="77" streamcontributorcount="777" 
         streamviewcount="7777" streamviewercount="77777" uniquevisitorcount="777777" usagedate="2011-04-09" avgactivityresponsetime="7" 
-        isWeekday="true"
+        isWeekday="1"
         />
     
 </dataset>

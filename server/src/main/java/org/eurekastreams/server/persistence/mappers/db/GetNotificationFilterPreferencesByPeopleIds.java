@@ -26,7 +26,7 @@ import org.eurekastreams.server.persistence.mappers.BaseDomainMapper;
 /**
  * Mapper to get notification filter preferences for one or more peopleIds.
  */
-public class GetNotificationFilterPreferencesByPeopleIds extends BaseDomainMapper
+public class GetNotificationFilterPreferencesByPeopleIds extends BaseDomainMapper 
 {
     /**
      * Makes the database call to get notification preferences.

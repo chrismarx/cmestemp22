@@ -56,7 +56,7 @@ public class BackgroundMapperTest extends DomainEntityMapperTest
     @Test
     public void testInsert()
     {
-        final long personId = 142L;
+        final long personId = 42L;
         Person person = jpaPersonMapper.findById(personId);
         Background background = new Background(person);
         jpaBackgroundMapper.insert(background);

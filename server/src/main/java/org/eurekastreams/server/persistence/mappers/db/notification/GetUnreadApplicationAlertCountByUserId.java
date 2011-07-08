@@ -22,7 +22,7 @@ import org.eurekastreams.server.persistence.mappers.ReadMapper;
 /**
  * This mapper queries for the current count of unread notifications for a user.
  */
-public class GetUnreadApplicationAlertCountByUserId extends ReadMapper<Long, Integer>
+public class GetUnreadApplicationAlertCountByUserId extends ReadMapper<Long, Integer> 
 {
     /**
      * Makes the database call to get notification count and sets it in cache.

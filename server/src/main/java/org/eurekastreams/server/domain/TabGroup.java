@@ -32,6 +32,7 @@ import org.hibernate.annotations.Where;
 
 /**
  * Represents a web page that contains a list of tabs.
+ * TODO hard coded @where annotations with boolean values "false" aren't correctly substituted by hibernate
  */
 @SuppressWarnings("serial")
 @Entity
@@ -52,7 +53,7 @@ public class TabGroup extends DomainEntity implements Serializable
     @IndexColumn(name = "tabIndex", base = 0)
     @OneToMany(fetch = FetchType.EAGER, cascade = { CascadeType.ALL })
     @JoinColumn(name = "tabGroupId")
-    @Where(clause = "deleted='false'")
+    @Where(clause = "deleted=0")
     private List<Tab> tabs = new ArrayList<Tab>();
 
     /**

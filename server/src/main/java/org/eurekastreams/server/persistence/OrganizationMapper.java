@@ -30,6 +30,8 @@ import org.eurekastreams.server.persistence.strategies.DescendantOrganizationStr
 
 /**
  * This class provides the mapper functionality for Organization entities.
+ * TODO quoted value of 'false' wasn't substituted correctly, 
+ *  see  https://forum.hibernate.org/viewtopic.php?f=1&t=1009876
  */
 @Deprecated
 public class OrganizationMapper extends DomainEntityMapper<Organization> implements CompositeEntityMapper
@@ -252,7 +254,7 @@ public class OrganizationMapper extends DomainEntityMapper<Organization> impleme
         Long descendantGroupCount =
                 (Long) getEntityManager().createQuery(
                         "select count(distinct id) from DomainGroup where parentOrganization.id IN ("
-                                + descendantOrgIdString + ") and isPending='false'").getSingleResult();
+                                + descendantOrgIdString + ") and isPending=false").getSingleResult();
         int descendantDomainGroupCount = descendantGroupCount.intValue();
 
         if (log.isInfoEnabled())

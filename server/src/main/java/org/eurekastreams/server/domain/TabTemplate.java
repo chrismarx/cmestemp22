@@ -41,6 +41,7 @@ import org.hibernate.validator.Length;
 /**
  * Tab template is a cookie cutter used for creating tabs with a given set
  * of starter information.
+ * TODO hard coded @where annotations with boolean values "false" aren't correctly substituted by hibernate
  *
  */
 @SuppressWarnings("serial")
@@ -94,7 +95,7 @@ public class TabTemplate extends DomainEntity implements Serializable
     @OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "tabTemplateId")
     @OrderBy("zoneNumber, zoneIndex")
-    @Where(clause = "deleted='false'")
+    @Where(clause = "deleted=0")
     @Cascade({ org.hibernate.annotations.CascadeType.ALL,
                 org.hibernate.annotations.CascadeType.DELETE_ORPHAN })
     private List<Gadget> gadgets;

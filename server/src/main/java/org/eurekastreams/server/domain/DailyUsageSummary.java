@@ -23,6 +23,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -48,7 +49,8 @@ public class DailyUsageSummary implements Serializable
      * you need to have getters/setters on everything.
      */
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO, generator="table_name_seq_gen")
+    @SequenceGenerator(name="table_name_seq_gen")
     private long id;
 
     /**

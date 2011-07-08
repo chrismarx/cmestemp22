@@ -27,6 +27,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -35,8 +36,10 @@ import org.eurekastreams.server.domain.stream.BaseObjectType;
 
 /**
  * A notification for display within the application on the alert pull-down.
+ * TODO the auto generated seq for this object was too long, had to use a custom sequence
  */
 @Entity
+@Table(name = "APPLALERTNOTIFICATION") 
 public class ApplicationAlertNotification extends DomainEntity implements Serializable
 {
     /**
@@ -44,7 +47,7 @@ public class ApplicationAlertNotification extends DomainEntity implements Serial
      */
     private static final long serialVersionUID = 3541861784436836240L;
 
-    /**
+	/**
      * Person to receive the notification.
      */
     @ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = { CascadeType.PERSIST })
@@ -147,6 +150,7 @@ public class ApplicationAlertNotification extends DomainEntity implements Serial
      */
     public ApplicationAlertNotification()
     {
+    	//System.out.println("this will get called if the app is compiling correctly");
     }
 
     /**
@@ -159,7 +163,8 @@ public class ApplicationAlertNotification extends DomainEntity implements Serial
      */
     public ApplicationAlertNotification(final NotificationDTO dto, final Person inRecipient)
     {
-        // can't pull the recipient from the DTO, since the DTO has a list
+ 
+    	// can't pull the recipient from the DTO, since the DTO has a list
         recipient = inRecipient;
 
         notificationType = dto.getType();

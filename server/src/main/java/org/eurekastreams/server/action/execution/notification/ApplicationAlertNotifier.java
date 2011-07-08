@@ -19,7 +19,7 @@ import org.eurekastreams.commons.server.UserActionRequest;
 import org.eurekastreams.server.domain.ApplicationAlertNotification;
 import org.eurekastreams.server.domain.NotificationDTO;
 import org.eurekastreams.server.domain.Person;
-import org.eurekastreams.server.persistence.mappers.BaseDomainMapper;
+import org.eurekastreams.server.persistence.mappers.BaseDomainMapper; 
 import org.eurekastreams.server.persistence.mappers.DomainMapper;
 import org.eurekastreams.server.persistence.mappers.InsertMapper;
 import org.eurekastreams.server.persistence.mappers.requests.PersistenceRequest;

@@ -46,7 +46,7 @@ import org.hibernate.search.annotations.Store;
 
 /**
  * This class represents the Gadget domain object.
- *
+ * TODO hard coded @where annotations with boolean values "false" aren't correctly substituted by hibernate
  */
 @SuppressWarnings("serial")
 @Entity
@@ -86,7 +86,7 @@ public class GadgetDefinition extends DomainEntity implements Serializable, Gall
      */
     @OneToMany(fetch = FetchType.LAZY, cascade = { CascadeType.ALL }, mappedBy = "gadgetDefinition")
     @JoinColumn(name = "gadgetDefinitionId")
-    @Where(clause = "deleted='false'")
+    @Where(clause = "deleted=0")
     private List<Gadget> gadgets;
 
     /**

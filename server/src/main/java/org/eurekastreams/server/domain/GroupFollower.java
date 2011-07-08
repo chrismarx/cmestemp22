@@ -18,6 +18,7 @@ package org.eurekastreams.server.domain;
 import java.io.Serializable;
 
 import javax.persistence.Basic;
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
@@ -51,6 +52,7 @@ public class GroupFollower extends WrappedLightEntity implements Serializable
      * Whether to receive notifications after new activities are posted to this group.
      */
     @Basic
+    @Column(name="receiveNewActivityNotification")
     private Boolean receiveNewActivityNotifications = true;
 
     /**

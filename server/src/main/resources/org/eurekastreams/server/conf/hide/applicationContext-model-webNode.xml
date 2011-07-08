@@ -13,11 +13,10 @@
 				<entry key="hibernate.cache.use_second_level_cache" value="false" />
 				<entry key="hibernate.cache.use_query_cache" value="false" />
 
-				<entry key="hibernate.show_sql" value="true" />
+				<entry key="hibernate.show_sql" value="false" />
 				<entry key="hibernate.use_sql_comments" value="false" />
 				<entry key="hibernate.format_sql" value="false" />
-				<entry key="hibernate.dialect" value="org.hibernate.dialect.custom.CustomOracle10gDialect" />
-        <entry key="hibernate.query.substitutions" value="true 1, false 0" />
+				<entry key="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
 
 				<!-- Worker setup - takes care of sending changed entities off for indexing -->
 				<entry key="hibernate.search.worker.backend" value="jms" />
@@ -38,7 +37,7 @@
 				<!-- SLAVE CONFIG -->
 				<entry key="hibernate.search.default.directory_provider"
 					value="org.hibernate.search.store.FSSlaveDirectoryProvider" />
-				<entry key="hibernate.search.default.indexBase" value="${clo.workspace.path}${eureka.hibernatesearch.indexbase.dir}/lucene-index-eureka-SLAVE" />				
+				<entry key="hibernate.search.default.indexBase" value="${eureka.hibernatesearch.indexbase.dir}/lucene-index-eureka-SLAVE" />				
 			</map>
 		</constructor-arg>
 	</bean>

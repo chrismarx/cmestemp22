@@ -5,6 +5,12 @@
   <!--  If you want to output test logging, uncomment the appender references in the logger configurations and
   include the -Dbuild.test.log.home flag on the maven command line to provide a path for logging. -->
   
+  <appender name="stdout" class="org.apache.log4j.ConsoleAppender">
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%d %p [%c] - %m%n"/>
+    </layout>
+  </appender>
+  
   <appender name="file" class="org.apache.log4j.RollingFileAppender">
      <param name="File" value="${build.test.log.home}/log.txt"/>
      <param name="Append" value="true"/>
@@ -53,7 +59,7 @@
   
   <!-- Set level to "off" to not see hibernate output in logs-->
   <logger name="org.hibernate">
-  	<level value="debug"/> 
+  	<level value="trace"/> 
   	<!-- <appender-ref ref="hibernateFile" />  -->  	
   </logger>
   
@@ -65,6 +71,7 @@
   
   <root> 
     <priority value ="all" /> 
+    <appender-ref ref="stdout" />
     <!--  <appender-ref ref="file" /> --> 
   </root>
   

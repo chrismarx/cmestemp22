@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2009-2011 Lockheed Martin Corporation
+ * Copyright (c) 2009-2010 Lockheed Martin Corporation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,12 +19,16 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Transient;
 import javax.persistence.Version;
 
 /**
  * The parent class for all domain entities. Contains the unique id key and
  * version property.
+ * 
+ * TODO oracle couldn't use the default sequence generation/lookup of "IDENTITY", had
+ *  to change this to use a sequencegenerator based on the table name
  */
 @MappedSuperclass
 public abstract class DomainEntity extends WrappedLightEntity
@@ -49,7 +53,8 @@ public abstract class DomainEntity extends WrappedLightEntity
      * then you need to have getters/setters on everything.
      */
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO, generator="table_name_seq_gen")
+    @SequenceGenerator(name="table_name_seq_gen")
     private long id;
 
     /**

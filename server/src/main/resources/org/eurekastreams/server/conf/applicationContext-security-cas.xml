@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+    xmlns:beans="http://www.springframework.org/schema/beans" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+     http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+     http://www.springframework.org/schema/security 
+     http://www.springframework.org/schema/security/spring-security-2.0.4.xsd">
+                
+    <http auto-config="true" entry-point-ref="casProcessingFilterEntryPoint">
+        <intercept-url pattern="/index.html" access="ROLE_USER"/>
+        <intercept-url pattern="/login_disabled.html" access="ROLE_USER"/>
+        <intercept-url pattern="/no_credentials.html" access="ROLE_USER"/>
+        <intercept-url pattern="/style/**" access="ROLE_USER"/>
+        <intercept-url pattern="/scripts/**" access="ROLE_USER"/>
+        <intercept-url pattern="/org.eurekastreams.web.Application.nocache.js" access="ROLE_USER"/>
+        <intercept-url pattern="/org.eurekastreams.web.ApplicationDev.nocache.js" access="ROLE_USER"/>
+        <intercept-url pattern="/eureka.nocache.js" access="ROLE_ANONYMOUS, ROLE_USER"/>
+        <intercept-url pattern="/*.cache.js" access="ROLE_ANONYMOUS, ROLE_USER"/>
+        <intercept-url pattern="/requestaccess.html" filters="none"/>
+        <intercept-url pattern="/favicon.ico" access="ROLE_USER"/>
+        <intercept-url pattern="/gwt-dnd.css" access="ROLE_USER"/>
+        <intercept-url pattern="/" access="ROLE_USER"/>
+        <intercept-url pattern="/resources/autocomplete/entities/**" access="ROLE_USER"/>
+        <intercept-url pattern="/resources/atom/**" access="ROLE_USER"/>
+        <intercept-url pattern="/resources/util/**" access="ROLE_USER"/>
+        <intercept-url pattern="/resources/**" access="ROLE_OAUTH_CLIENT, ROLE_USER"/>  
+        <intercept-url pattern="/themes/**" access="ROLE_USER"/>
+        <intercept-url pattern="/social/**" access="ROLE_USER"/>   
+        <intercept-url pattern="/gadgets/**" access="ROLE_USER"/>
+        <intercept-url pattern="/org/eurekastreams/gadgets/**" access="ROLE_ANONYMOUS, ROLE_USER"/>
+        <intercept-url pattern="/rpc" access="ROLE_USER"/>
+        <intercept-url pattern="/rpc/**" access="ROLE_USER"/>
+        <intercept-url pattern="/eurekastreams/photos/**" access="ROLE_USER"/>
+        <intercept-url pattern="/api/0/full/**" access="${build.spring.security.apirestletaccess}"/>
+	    <intercept-url pattern="/api/0/read/**" access="ROLE_OAUTH_CLIENT, ROLE_USER"/>
+	    <intercept-url pattern="/casfailed.jsp" access="ROLE_ANONYMOUS, ROLE_USER"/>
+        <intercept-url pattern="/**" access="ROLE_USER"/>
+        <logout logout-success-url="https://secure.birds.cornell.edu/sso/logout?service=http://www.yardmap.org"/>
+        <!-- key MUST match key in persistentLoginService -->
+        <remember-me services-ref="persistentLoginService" key="595"/>
+    </http>       
+
+  <beans:bean id="serviceProperties" class="org.springframework.security.ui.cas.ServiceProperties">
+    <beans:property name="service" value="${eureka.web.baseurl}/j_spring_cas_security_check"/>
+    <beans:property name="sendRenew" value="false"/>
+  </beans:bean>
+  
+  <authentication-manager alias="authenticationManager"/>  
+  
+	        
+	<beans:bean id="casProcessingFilter" class="org.springframework.security.ui.cas.CasProcessingFilter">
+	  <custom-filter after="CAS_PROCESSING_FILTER"/>
+	  <beans:property name="authenticationManager" ref="authenticationManager"/>
+	  <beans:property name="authenticationFailureUrl" value="/casfailed.jsp"/>
+	  <beans:property name="defaultTargetUrl" value="/#activity"/>
+	</beans:bean>
+		
+	<beans:bean id="casProcessingFilterEntryPoint" 
+	    class="org.springframework.security.ui.cas.CasProcessingFilterEntryPoint">
+	  <beans:property name="loginUrl" value="https://secure.birds.cornell.edu/sso/login"/>
+	  <beans:property name="serviceProperties" ref="serviceProperties"/>
+	</beans:bean>
+  
+  <beans:bean id="casAuthenticationProvider" class="org.springframework.security.providers.cas.CasAuthenticationProvider">
+    <custom-authentication-provider />
+    <beans:property name="userDetailsService" ref="userDetailsService"/>
+    <beans:property name="serviceProperties" ref="serviceProperties" />
+    <beans:property name="ticketValidator">
+      <beans:bean class="org.jasig.cas.client.validation.Cas20ServiceTicketValidator">
+        <beans:constructor-arg index="0" value="https://secure.birds.cornell.edu/sso" />
+        </beans:bean>
+    </beans:property>
+    <beans:property name="key" value="an_id_for_this_auth_provider_only"/>
+  </beans:bean>
+  
+    
+    <beans:bean id="authorityProvider" class="org.eurekastreams.server.service.security.userdetails.AuthorityProviderImpl" />
+    
+    <beans:bean id="userDetailsService" class="org.eurekastreams.server.service.security.userdetails.UserDetailsServiceImpl">
+        <beans:constructor-arg ref="jpaPersonMapper" />
+        <beans:constructor-arg ref="persistentLoginRepository" />
+        <beans:constructor-arg ref="authorityProvider" />
+        <beans:constructor-arg ref="serviceActionController" />
+        <beans:constructor-arg ref="createPersonFromLdap" />
+    	<beans:property name="authenticationType" value="FORM" />
+    </beans:bean> 
+    
+    <beans:bean id="persistentLoginRepository" class="org.eurekastreams.server.service.security.persistentlogin.PersistentLoginRepositoryImpl">
+        <beans:constructor-arg>     
+            <beans:ref bean="jpaPersistentLoginMapper"/>
+        </beans:constructor-arg>
+    </beans:bean>
+    
+    <!-- Note: getting persistentLoginServer error or casfailed.jsp? check that your account is not locked! -->
+    <beans:bean id="persistentLoginService" class="org.eurekastreams.server.service.security.persistentlogin.PersistentLoginService" >    
+        <beans:constructor-arg value="595" />
+        <beans:constructor-arg>     
+            <beans:ref bean="userDetailsService"/>
+        </beans:constructor-arg>
+        <beans:constructor-arg>     
+            <beans:ref bean="persistentLoginRepository"/>
+        </beans:constructor-arg>
+        <!-- <beans:property name="alwaysRemember" value="true" /> -->
+    </beans:bean>       
+    
+</beans:beans>
