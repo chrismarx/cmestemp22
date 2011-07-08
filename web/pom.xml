@@ -134,6 +134,11 @@
             <version>1.3.1.RELEASE</version>
         </dependency>
         <dependency>
+        	<groupId>org.springframework</groupId>
+        	<artifactId>spring-tx</artifactId>
+        	<version>2.5.6.SEC02</version>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-core</artifactId>
             <version>2.0.4</version>
@@ -142,6 +147,10 @@
                 <exclusion>
                     <groupId>commons-codec</groupId>
                     <artifactId>commons-codec</artifactId>
+                </exclusion>
+                <exclusion>
+                	<artifactId>spring-aop</artifactId>
+                	<groupId>org.springframework</groupId>
                 </exclusion>
             </exclusions>
         </dependency>
@@ -160,7 +169,7 @@
         <dependency>
             <groupId>org.eurekastreams</groupId>
             <artifactId>eurekastreams-server</artifactId>
-            <version>${project.version}</version>
+            <version>${project.version}</version> 
         </dependency>
         <dependency>
             <groupId>org.jmock</groupId>
@@ -220,11 +229,13 @@
             <version>r1</version>
             <scope>compile</scope>
         </dependency>
+        <!-- 
         <dependency>
             <groupId>it.cnr.isti.domoware</groupId>
             <artifactId>org.postgresql.jdbc4</artifactId>
             <version>8.3-603</version>
         </dependency>
+         -->
         <dependency>
             <groupId>com.gwtyuicarousel</groupId>
             <artifactId>carousel</artifactId>
@@ -236,11 +247,11 @@
             <version>3.0.1</version>
         </dependency>
         <!-- Uncomment to enable GWT logging -->
-		<!--<dependency>
+		<dependency>
 		    <groupId>com.google.code.gwt-log</groupId>
 		    <artifactId>gwt-log</artifactId>
 		    <version>2.6.2</version>
-		</dependency>-->
+		</dependency>
         <dependency>
             <groupId>commons-fileupload</groupId>
             <artifactId>commons-fileupload</artifactId>
@@ -367,7 +378,8 @@
                     </nonFilteredFileExtensions>
                 </configuration>
             </plugin>
-            <plugin>
+             <!-- 
+            <plugin> 
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>1.1</version>
@@ -389,6 +401,7 @@
                     </execution>
                 </executions>
             </plugin>
+             -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-antrun-plugin</artifactId>
@@ -751,7 +764,7 @@
                         <configuration>
                             <module>${build.gwt.modulename}</module>
                             <logLevel>INFO</logLevel>
-                            <extraJvmArgs>-Xmx1024m</extraJvmArgs>
+                            <extraJvmArgs>-Xms1124m -Xmx1124m -Xss24m</extraJvmArgs>
                             <gwtVersion>${gwtVersion}</gwtVersion>
                             <mergedWebXml>${project.build.directory}/web.xml</mergedWebXml>
                             <webXmlServletPathAsIs>true</webXmlServletPathAsIs>

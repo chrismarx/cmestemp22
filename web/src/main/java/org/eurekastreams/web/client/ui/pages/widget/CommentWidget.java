@@ -204,7 +204,9 @@ public class CommentWidget extends Composite
             accountLocked = Session.getInstance().getCurrentPerson().isAccountLocked();
             if (!accountLocked)
             {
-                postToEurekaCheckBox.addStyleName(StaticResourceBundle.INSTANCE.coreCss().postToEureka());
+            	postToEurekaCheckBox.addStyleName(StaticResourceBundle.INSTANCE.coreCss().postToEureka());
+            	//TODO move to proper extension
+            	postToEurekaCheckBox.setVisible(false);
                 getSubTextboxPanel().insert(postToEurekaCheckBox, 0);
             }
         }

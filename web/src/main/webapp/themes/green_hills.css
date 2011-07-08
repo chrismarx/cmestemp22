@@ -6,7 +6,8 @@
             url(/style/images/ISGS_Banner.png)
             repeat;
             
-                border-bottom: 1px solid #676767;       
+        border-bottom: 1px solid #676767;  
+             
     }
 
         .themeable .site-labeling

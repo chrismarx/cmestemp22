@@ -82,7 +82,7 @@ public class FooterComposite extends Composite
 
         Anchor poweredBy = new Anchor("", "http://www.eurekastreams.org", "_blank");
         poweredBy.addStyleName(StaticResourceBundle.INSTANCE.coreCss().poweredByEureka());
-        navPanel.add(poweredBy);
+        //navPanel.add(poweredBy);
 
         panel.add(navPanel);
         panel.add(siteLabelingContainer);

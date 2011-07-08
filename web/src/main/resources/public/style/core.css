@@ -396,8 +396,9 @@ div.content {
 	padding-bottom: 135px;
 }
 
+/* TODO override this properly */
 div.banner-container {
-	padding-top: 100px;
+	padding-top: 0px; /* was 100px */
 	border-bottom: 1px solid #BBBBBB;
 }
 
@@ -4790,10 +4791,11 @@ a.gadget-zone-chrome-title-bar-restore-button:hover {
 	margin-top: -19px;
 }
 
+/* TODO override properly */
 .configure-tab {
 	margin-left: 897px;
 	position: absolute;
-	top: 135px;
+	top: 90px !important; /* was 130px, changed because the header image was hidden */
 	margin-right: 20px;
 	z-index: 999;
 	padding: 3px 10px;

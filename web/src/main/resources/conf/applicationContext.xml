@@ -37,10 +37,10 @@
 	-->
 	<alias alias="taskHandler" name="${build.jms.taskhandler}" />
 	
-	
+	<!-- ${build.spring.security} -->
 	<import resource="classpath:/org/eurekastreams/server/conf/applicationContext-gilead.xml" />
     <import resource="classpath:/org/eurekastreams/server/conf/applicationContext-security-common.xml" />
-    <import resource="classpath:/org/eurekastreams/server/conf/applicationContext-security-${build.spring.security}.xml" />
+    <import resource="classpath:/org/eurekastreams/server/conf/applicationContext-security-cas.xml" />
 	<import resource="classpath:/org/eurekastreams/server/conf/applicationContext-restlets.xml" />
 	
     <!-- Initialize Class and Field Bridges with singleton setters -->

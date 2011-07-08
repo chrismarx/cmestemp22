@@ -19,6 +19,6 @@
 	<GadgetBorderColor>#313007</GadgetBorderColor>
 	<PageBackground>
 		<PageBackgroundColor>#e6e1d0</PageBackgroundColor>
-		<PageBackgroundImage/>
+		<PageBackgroundImage></PageBackgroundImage>
 	</PageBackground>
 </Theme>

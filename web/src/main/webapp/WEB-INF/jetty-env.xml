@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE Configure PUBLIC "-//Mort Bay Consulting//DTD Configure//EN" "http://jetty.mortbay.org/configure.dtd">
+
+<Configure class="org.mortbay.jetty.webapp.WebAppContext">
+
+<New id="myDataSource" class="org.mortbay.jetty.plus.naming.Resource">
+
+<Arg>jdbc/myDataSource</Arg>
+
+<Arg>
+
+<New class="org.apache.commons.dbcp.BasicDataSource">
+
+	<Set name="driverClassName">oracle.jdbc.pool.OracleConnectionPoolDataSource</Set>
+	
+	<Set name="url">jdbc:oracle:thin:@guillemot.ornith.cornell.edu:1521:sw2</Set>
+	
+	<Set name="username">eureka_streams</Set>
+	
+	<Set name="password">YourekaTent!</Set>
+
+</New>
+
+</Arg>
+</New>
+
+</Configure>

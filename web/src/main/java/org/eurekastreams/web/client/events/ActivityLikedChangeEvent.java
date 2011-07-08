@@ -20,7 +20,7 @@ import org.eurekastreams.server.action.request.stream.SetActivityLikeRequest.Lik
 /**
  * Event fired when liked status changes.
  */
-public class ActivityLikedChangeEvent
+public class ActivityLikedChangeEvent 
 {
     /**
      * Action type.

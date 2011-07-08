@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+
+	<!-- Resource links -->
+	<!-- TEST -->
+	<ResourceLink global="jdbc/eureka_streams_at_sw2_guillemot_datasource" name="jdbc/myDataSource"/>
+	
+	<!-- PRODUCTION -->
+ 	<!--
+	<ResourceLink global="jdbc/cur_at_sw2_swift_datasource" name="jdbc/shareable_datasource"/>
+	<ResourceLink global="jdbc/cur_at_sw2_swift_datasource" name="jdbc/unshareable_datasource"/>
+ 	-->
+
+</Context>

@@ -3,8 +3,14 @@
 
 <log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
 
+	<appender name="stdout" class="org.apache.log4j.ConsoleAppender">
+	    <layout class="org.apache.log4j.PatternLayout">
+	      <param name="ConversionPattern" value="%d %p [%c] - %m%n"/>
+	    </layout>
+	</appender>
+ 
 	<appender name="file" class="org.apache.log4j.RollingFileAppender">
-		<param name="File" value="${log.home}/log.txt" />
+		<param name="File" value="${catalina.base}${log.home}/log.txt" />
 		<param name="Append" value="true" />
 		<param name="MaxFileSize" value="5MB" />
 		<param name="MaxBackupIndex" value="5" />
@@ -14,7 +20,7 @@
 	</appender>
 
 	<appender name="errorFile" class="org.apache.log4j.RollingFileAppender">
-		<param name="File" value="${log.home}/error.log.txt" />
+		<param name="File" value="${catalina.base}${log.home}/error.log.txt" />
 		<param name="Append" value="true" />
 		<param name="Threshold" value="error" />
 		<param name="MaxFileSize" value="5MB" />
@@ -25,7 +31,7 @@
 	</appender>
 	
 	<appender name="actionFile" class="org.apache.log4j.RollingFileAppender">
-		<param name="File" value="${log.home}/action.log.txt" />
+		<param name="File" value="${catalina.base}${log.home}/action.log.txt" />
 		<param name="Append" value="true" />
 		<param name="MaxFileSize" value="5MB" />
 		<param name="MaxBackupIndex" value="5" />
@@ -35,7 +41,7 @@
 	</appender>
 
 	<appender name="restletFile" class="org.apache.log4j.RollingFileAppender">
-		<param name="File" value="${log.home}/restlet.log.txt" />
+		<param name="File" value="${catalina.base}${log.home}/restlet.log.txt" />
 		<param name="Append" value="true" />
 		<param name="MaxFileSize" value="5MB" />
 		<param name="MaxBackupIndex" value="5" />
@@ -45,7 +51,7 @@
 	</appender>
 
 	<appender name="springFile" class="org.apache.log4j.RollingFileAppender">
-		<param name="File" value="${log.home}/spring.log.txt" />
+		<param name="File" value="${catalina.base}${log.home}/spring.log.txt" />
 		<param name="Append" value="true" />
 		<param name="MaxFileSize" value="5MB" />
 		<param name="MaxBackupIndex" value="5" />
@@ -55,7 +61,7 @@
 	</appender>
 
 	<appender name="springSecurityFile" class="org.apache.log4j.RollingFileAppender">
-		<param name="File" value="${log.home}/springSecurity.log.txt" />
+		<param name="File" value="${catalina.base}${log.home}/springSecurity.log.txt" />
 		<param name="Append" value="true" />
 		<param name="MaxFileSize" value="5MB" />
 		<param name="MaxBackupIndex" value="5" />
@@ -65,7 +71,7 @@
 	</appender>
 
 	<appender name="LdapFile" class="org.apache.log4j.RollingFileAppender">
-		<param name="File" value="${log.home}/ldap.log.txt" />
+		<param name="File" value="${catalina.base}${log.home}/ldap.log.txt" />
 		<param name="Append" value="true" />
 		<param name="MaxFileSize" value="5MB" />
 		<param name="MaxBackupIndex" value="5" />
@@ -75,7 +81,7 @@
 	</appender>
 
 	<appender name="sqlFile" class="org.apache.log4j.RollingFileAppender">
-		<param name="File" value="${log.home}/sql.log.txt" />
+		<param name="File" value="${catalina.base}${log.home}/sql.log.txt" />
 		<param name="Append" value="true" />
 		<param name="MaxFileSize" value="5MB" />
 		<param name="MaxBackupIndex" value="5" />
@@ -85,7 +91,7 @@
 	</appender>
 
 	<appender name="jobsFile" class="org.apache.log4j.RollingFileAppender">
-		<param name="File" value="${log.home}/job.log.txt" />
+		<param name="File" value="${catalina.base}${log.home}/job.log.txt" />
 		<param name="Append" value="true" />
 		<param name="MaxFileSize" value="5MB" />
 		<param name="MaxBackupIndex" value="5" />
@@ -96,7 +102,7 @@
 
 	<!-- Hibernate Second-Level Cache Logging -->
 	<appender name="secondLevelCacheFile" class="org.apache.log4j.RollingFileAppender">
-		<param name="File" value="${log.home}/hibernateCache.log.txt" />
+		<param name="File" value="${catalina.base}${log.home}/hibernateCache.log.txt" />
 		<param name="Append" value="true" />
 		<param name="MaxFileSize" value="5MB" />
 		<param name="MaxBackupIndex" value="5" />
@@ -107,7 +113,7 @@
 
 	<!-- Hibernate/Lucene Search -->
 	<appender name="searchLogFile" class="org.apache.log4j.RollingFileAppender">
-		<param name="File" value="${log.home}/search.log.txt" />
+		<param name="File" value="${catalina.base}${log.home}/search.log.txt" />
 		<param name="Append" value="true" />
 		<param name="MaxFileSize" value="5MB" />
 		<param name="MaxBackupIndex" value="5" />
@@ -118,7 +124,7 @@
 
 	<!-- Custom cache logging -->
 	<appender name="customCacheFile" class="org.apache.log4j.RollingFileAppender">
-		<param name="File" value="${log.home}/cache.log.txt" />
+		<param name="File" value="${catalina.base}${log.home}/cache.log.txt" />
 		<param name="Append" value="true" />
 		<param name="MaxFileSize" value="5MB" />
 		<param name="MaxBackupIndex" value="5" />
@@ -128,7 +134,7 @@
 	</appender>
 
 	<appender name="luceneDirectoryProviders" class="org.apache.log4j.RollingFileAppender">
-		<param name="File" value="${log.home}/luceneDirectoryProviders.log.txt" />
+		<param name="File" value="${catalina.base}${log.home}/luceneDirectoryProviders.log.txt" />
 		<param name="Append" value="true" />
 		<param name="MaxFileSize" value="5MB" />
 		<param name="MaxBackupIndex" value="5" />
@@ -139,7 +145,7 @@
 
 	<!-- Logger for Hibernate Search bootstrapping/reindexing -->
 	<appender name="searchIndexing" class="org.apache.log4j.RollingFileAppender">
-		<param name="File" value="${log.home}/searchIndexing.log.txt" />
+		<param name="File" value="${catalina.base}${log.home}/searchIndexing.log.txt" />
 		<param name="Append" value="true" />
 		<param name="MaxFileSize" value="5MB" />
 		<param name="MaxBackupIndex" value="5" />
@@ -150,7 +156,7 @@
 		
 	<!-- aop perf timer log appender -->	
     <appender name="performanceLog" class="org.apache.log4j.RollingFileAppender">
-        <param name="File" value="${log.home}/performance.log.txt" />
+        <param name="File" value="${catalina.base}${log.home}/performance.log.txt" />
         <param name="Append" value="true" />
         <param name="MaxFileSize" value="5MB" />
         <param name="MaxBackupIndex" value="10" />
@@ -161,7 +167,7 @@
     
     <!-- Quartz scheduler log -->
     <appender name="quartzSchedulerLog" class="org.apache.log4j.RollingFileAppender">
-        <param name="File" value="${log.home}/quartz-scheduler.log.txt" />
+        <param name="File" value="${catalina.base}${log.home}/quartz-scheduler.log.txt" />
         <param name="Append" value="true" />
         <param name="MaxFileSize" value="5MB" />
         <param name="MaxBackupIndex" value="5" />
@@ -280,11 +286,16 @@
 		<appender-ref ref="secondLevelCacheFile" />
 	</logger>
 	<logger name="org.hibernate.SQL" additivity="false">
-		<level value="debug" />
+		<level value="trace" />
+		<appender-ref ref="stdout" />
 		<appender-ref ref="secondLevelCacheFile" />
 		<appender-ref ref="sqlFile" />
 	</logger>
-
+	<logger name="org.hibernate.type" >
+    	<level value="trace" />
+    	<appender-ref ref="stdout" />
+    	<appender-ref ref="sqlFile" />
+  	</logger>
 	<!-- Custom Cache Logging -->
 	<logger name="org.eurekastreams.server.persistence.mappers.cache"
 		additivity="true">
@@ -327,6 +338,7 @@
 		<priority value="debug" />
 		<appender-ref ref="file" />
 		<appender-ref ref="errorFile" />
+		<appender-ref ref="stdout" />
 	</root>
 
 </log4j:configuration>

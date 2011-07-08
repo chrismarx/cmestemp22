@@ -120,7 +120,7 @@ public class HeaderComposite extends Composite
         FlowPanel panel = new FlowPanel();
         FlowPanel navPanel = new FlowPanel();
 
-        Anchor externalLink = new Anchor("Eureka Streams", "http://www.eurekastreams.org", "_blank");
+        Anchor externalLink = new Anchor("Social", "http://www.birds.cornell.edu", "_blank");
         externalLink.addStyleName(StaticResourceBundle.INSTANCE.coreCss().navBarButton());
 
         Hyperlink startPageLink = new Hyperlink("Start Page", Session.getInstance().generateUrl(
@@ -144,7 +144,10 @@ public class HeaderComposite extends Composite
 
         externalPageLinkPanel.add(externalLink);
         externalPageLinkPanel.addStyleName(StaticResourceBundle.INSTANCE.coreCss().externalHeaderButton());
-        startPageLinkPanel.add(startPageLink);
+        
+        //TODO re-enable start page after we get useful gadgets, uncomment linkMap.put(start, etc), below as well
+        //startPageLinkPanel.add(startPageLink);
+        
         startPageLinkPanel.addStyleName(StaticResourceBundle.INSTANCE.coreCss().startHeaderButton());
         activityLinkPanel.add(activityLink);
         activityLinkPanel.addStyleName(StaticResourceBundle.INSTANCE.coreCss().activityHeaderButton());
@@ -155,7 +158,7 @@ public class HeaderComposite extends Composite
 
         // galleryLinkPanel.add(galleryLink);
 
-        linkMap.put(Page.START, startPageLink);
+        //linkMap.put(Page.START, startPageLink);
         linkMap.put(Page.ACTIVITY, activityLink);
         linkMap.put(Page.ORGANIZATIONS, directoryLink);
         linkMap.put(Page.GROUPS, directoryLink);
@@ -242,7 +245,7 @@ public class HeaderComposite extends Composite
         panel.add(siteLabelingContainer);
 
         initWidget(panel);
-        setActive(Session.getInstance().getUrlPage());
+        setActive(Page.ACTIVITY); //Session.getInstance().getUrlPage();
     }
 
     /**

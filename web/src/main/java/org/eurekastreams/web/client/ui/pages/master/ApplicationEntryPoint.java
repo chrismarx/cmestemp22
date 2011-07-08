@@ -28,6 +28,7 @@ import org.eurekastreams.commons.client.ActionRequestImpl;
 import org.eurekastreams.commons.exceptions.SessionException;
 import org.eurekastreams.server.domain.AvatarUrlGenerator;
 import org.eurekastreams.server.domain.EntityType;
+import org.eurekastreams.server.domain.Page;
 import org.eurekastreams.server.domain.TermsOfServiceDTO;
 import org.eurekastreams.server.domain.stream.StreamEntityDTO;
 import org.eurekastreams.server.search.modelview.PersonModelView;
@@ -255,6 +256,8 @@ public class ApplicationEntryPoint implements EntryPoint
 
                         session.getPeriodicEventManager().start();
                         rootPanel.add(master);
+                        Window.Location.replace("/#" + Page.ACTIVITY.toString());
+                        
                     }
                 });
     }
