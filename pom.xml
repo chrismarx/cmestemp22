@@ -142,8 +142,10 @@
         <build.system.proxyport>8080</build.system.proxyport>
         <build.system.proxyset>false</build.system.proxyset>
         <build.system.nonproxyhosts>*.example.com</build.system.nonproxyhosts>
+        <build.db.rootconnstr>jdbc:postgresql://</build.db.rootconnstr>
         <build.db.dbname>eurekastreams</build.db.dbname>
         <build.db.dbuser>eurekastreams</build.db.dbuser>
+        <build.db.password>eurekastreams</build.db.password>
         <build.db.servername>127.0.0.1</build.db.servername>
         <build.cache.servernames>localhost:11211</build.cache.servernames>
         <build.lucene.indexdir>/tmp</build.lucene.indexdir>
@@ -178,6 +180,7 @@
                     <memmax>2048m</memmax>
                 </configuration>
             </plugin>
+            <!-- 
 			<plugin>
                <groupId>org.apache.maven.plugins</groupId>
                <artifactId>maven-checkstyle-plugin</artifactId>
@@ -198,6 +201,7 @@
                	</execution>
                </executions>
            </plugin>
+            -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
@@ -268,6 +272,7 @@
             </activation>
             <build>
                 <plugins>
+                    <!-- 
                     <plugin>
                         <groupId>org.codehaus.mojo</groupId>
                         <artifactId>exec-maven-plugin</artifactId>
@@ -303,6 +308,7 @@
                             </execution>
                         </executions>
                     </plugin>
+                     -->
                     <plugin>
                         <!--
                             Note that this plugin will invoke package Do
